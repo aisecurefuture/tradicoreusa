@@ -1,5 +1,37 @@
 services:
 
+  # ── PostgreSQL ─────────────────────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       tradicore
+      POSTGRES_USER:     tradicore
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tradicore -d tradicore"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - internal
+
+  # ── DB migrations (runs once on deploy, then exits) ────────────────────────
+  migrate:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    command: node src/migrate.js
+    env_file: ./api/.env
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - internal
+    restart: "no"
+
   # ── React app (nginx serves the built static files) ────────────────────────
   web:
     build:
@@ -8,18 +40,19 @@ services:
     restart: unless-stopped
     networks:
       - internal
-    # Not exposed to the host — Caddy proxies to it over the internal network
 
-  # ── Express API (Resend email handler) ────────────────────────────────────
+  # ── Express API ────────────────────────────────────────────────────────────
   api:
     build:
       context: ./api
       dockerfile: Dockerfile
     restart: unless-stopped
     env_file: ./api/.env
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
     networks:
       - internal
-    # Not exposed to the host — Caddy proxies /api/* to it
 
   # ── Caddy — TLS termination, Let's Encrypt, reverse proxy ─────────────────
   caddy:
@@ -31,6 +64,7 @@ services:
       - "443:443/udp"   # HTTP/3 (QUIC)
     volumes:
       - ./web/docker/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./firstgoldenlogistics:/srv/fgl:ro  # static site served directly by Caddy
       - caddy_data:/data          # TLS certificates — persisted across restarts
       - caddy_config:/config      # Caddy config cache
       - caddy_logs:/var/log/caddy
@@ -47,6 +81,7 @@ networks:
     driver: bridge
 
 volumes:
+  postgres_data:
   caddy_data:
   caddy_config:
   caddy_logs:

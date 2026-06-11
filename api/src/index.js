@@ -9,6 +9,8 @@ const rateLimit = require('express-rate-limit')
 const morgan    = require('morgan')
 
 const contactRoutes = require('./routes/contact')
+const authRoutes    = require('./routes/auth')
+const fglRoutes     = require('./routes/fgl')
 
 const app  = express()
 const PORT = process.env.PORT || 3001
@@ -52,6 +54,8 @@ const limiter = rateLimit({
 
 // ── Routes ────────────────────────────────────────────────────────────────────
 app.use('/api', limiter, contactRoutes)
+app.use('/api/auth', authRoutes)
+app.use('/api/fgl', limiter, fglRoutes)
 
 // Health check (not rate-limited)
 app.get('/health', (_req, res) => res.json({ ok: true }))
@@ -70,5 +74,11 @@ app.listen(PORT, () => {
   console.log(`[api] NODE_ENV=${process.env.NODE_ENV || 'development'}`)
   if (!process.env.RESEND_API_KEY) {
     console.warn('[api] RESEND_API_KEY not set — emails will be logged only')
+  }
+  if (!process.env.DATABASE_URL) {
+    console.warn('[api] DATABASE_URL not set — auth and notify persistence will be unavailable')
+  }
+  if (!process.env.JWT_SECRET) {
+    console.warn('[api] JWT_SECRET not set — auth routes will fail')
   }
 })

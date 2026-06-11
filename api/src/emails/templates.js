@@ -173,6 +173,114 @@ exports.autoReplyNotify = (email) => base(`
   <p style="font-size:13px;color:#888;">In the meantime, browse our <a href="https://tradicoreusa.com/collections/moulding-trim" style="color:#C9A84C;">moulding & trim</a> and <a href="https://tradicoreusa.com/collections/tropical-hardwood" style="color:#C9A84C;">tropical hardwood</a> collections.</p>
 `)
 
+// ── Account: welcome email ────────────────────────────────────────────────────
+exports.welcomeEmail = (user) => base(`
+  <h2>Welcome to TradiCore, ${escHtml(user.first_name)}.</h2>
+  <p>Your account has been created. You can now request quotes, track orders, and apply for trade pricing — all from one place.</p>
+  <div class="section">
+    <div class="label">Email</div><div class="value">${escHtml(user.email)}</div>
+    <div class="label">Account type</div><div class="value" style="text-transform:capitalize;">${escHtml(user.account_type)}</div>
+  </div>
+  <p><a href="https://tradicoreusa.com/account" style="display:inline-block;background:#C9A84C;color:#0D2137;font-weight:700;padding:12px 24px;border-radius:6px;text-decoration:none;">Go to My Account</a></p>
+  <hr/>
+  <p style="font-size:13px;color:#888;">Looking to get wholesale pricing? <a href="https://tradicoreusa.com/trade" style="color:#C9A84C;">Apply for a trade account →</a></p>
+`)
+
+// ── Account: password reset ───────────────────────────────────────────────────
+exports.passwordResetEmail = (firstName, resetUrl) => base(`
+  <h2>Reset your password, ${escHtml(firstName)}.</h2>
+  <p>We received a request to reset the password for your TradiCore account. Click the button below — this link expires in <strong>1 hour</strong>.</p>
+  <p style="margin:28px 0;">
+    <a href="${resetUrl}" style="display:inline-block;background:#C9A84C;color:#0D2137;font-weight:700;padding:12px 24px;border-radius:6px;text-decoration:none;">Reset My Password</a>
+  </p>
+  <p style="font-size:13px;color:#888;">If the button doesn't work, copy and paste this link into your browser:</p>
+  <p style="font-size:12px;word-break:break-all;color:#555;">${resetUrl}</p>
+  <hr/>
+  <p style="font-size:13px;color:#888;">If you didn't request this, you can ignore this email — your password won't change.</p>
+`)
+
+// =============================================================================
+// First Golden Logistics templates
+// =============================================================================
+
+const fglBase = (content) => `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { margin:0; padding:0; background:#f5f5f5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .wrap { max-width:600px; margin:32px auto; background:#fff; border-radius:8px; overflow:hidden; border:1px solid #e5e5e5; }
+    .header { background:#111; padding:28px 32px; display:flex; align-items:center; gap:14px; }
+    .logo-text { color:#C9A020; font-size:20px; font-weight:800; letter-spacing:-0.5px; }
+    .logo-text span { color:#fff; font-weight:400; }
+    .body { padding:32px; color:#333; font-size:15px; line-height:1.6; }
+    .label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.8px; color:#888; margin-bottom:4px; }
+    .value { font-size:15px; color:#111; margin-bottom:16px; }
+    .section { background:#fafafa; border:1px solid #eee; border-radius:6px; padding:16px 20px; margin:16px 0; }
+    .footer { background:#111; padding:20px 32px; font-size:12px; color:#888; }
+    .footer a { color:#C9A020; text-decoration:none; }
+    h2 { margin:0 0 20px; font-size:20px; color:#111; }
+    .badge { display:inline-block; background:#C9A02015; color:#C9A020; font-size:11px; font-weight:700;
+             padding:3px 10px; border-radius:20px; margin-bottom:16px; letter-spacing:0.4px; }
+    hr { border:none; border-top:1px solid #eee; margin:20px 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="logo-text">First Golden <span>Logistics</span></div>
+    </div>
+    <div class="body">${content}</div>
+    <div class="footer">
+      First Golden Logistics &bull; Chicago, USA &bull;
+      <a href="mailto:dex@firstgoldenlogistics.com">firstgoldenlogistics.com</a>
+    </div>
+  </div>
+</body>
+</html>`
+
+// Internal notification — sent to Alan, Mohammad, and Dex
+exports.fglInternalContact = (d) => fglBase(`
+  <div class="badge">New Inquiry</div>
+  <h2>New readiness check request</h2>
+
+  <div class="section">
+    <div class="label">Name</div>
+    <div class="value">${escHtml(d.name)}</div>
+    <div class="label">Company / Brand</div>
+    <div class="value">${escHtml(d.company)}</div>
+    <div class="label">Email</div>
+    <div class="value"><a href="mailto:${escHtml(d.email)}" style="color:#C9A020;">${escHtml(d.email)}</a></div>
+    ${d.phone ? `<div class="label">Phone</div><div class="value">${escHtml(d.phone)}</div>` : ''}
+  </div>
+
+  ${d.product ? `
+  <div class="label">About their product</div>
+  <div class="value" style="white-space:pre-wrap;background:#fafafa;border:1px solid #eee;border-radius:6px;padding:16px 20px;">${escHtml(d.product)}</div>
+  ` : ''}
+`)
+
+// Auto-reply — sent to the person who submitted the form
+exports.fglAutoReply = (d) => fglBase(`
+  <h2>We'll be in touch, ${escHtml(d.name.split(' ')[0])}.</h2>
+  <p>Thanks for reaching out to First Golden Logistics. Our team has received your request and will follow up at <strong>${escHtml(d.email)}</strong> within one business day.</p>
+  <div class="section">
+    <div class="label">What happens next</div>
+    <div class="value">One of our principals — Mohammad, Alan, or Dex — will reach out to schedule your free U.S. Readiness Check call. The call is 20 minutes, no commitment.</div>
+  </div>
+  <hr/>
+  <p style="font-size:13px;color:#888;">
+    Questions in the meantime? Reply to this email or call us directly:<br/>
+    Mohammad Akhtar — <a href="tel:+18475053302" style="color:#C9A020;">+1 (847) 505-3302</a><br/>
+    Alan Pan — <a href="tel:+12247156452" style="color:#C9A020;">+1 (224) 715-6452</a><br/>
+    Dex — <a href="tel:+16303943535" style="color:#C9A020;">+1 (630) 394-3535</a>
+  </p>
+`)
+
+// =============================================================================
+
 function escHtml(str = '') {
   return String(str)
     .replace(/&/g, '&amp;')

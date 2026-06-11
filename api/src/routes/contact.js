@@ -3,7 +3,8 @@
 const { Router } = require('express')
 const { z } = require('zod')
 const { sendEmail } = require('../mailer')
-const t = require('../emails/templates')
+const t    = require('../emails/templates')
+const pool = require('../db')
 
 const router = Router()
 
@@ -175,6 +176,25 @@ router.post('/trade', async (req, res) => {
 router.post('/notify', async (req, res) => {
   const { ok, error, data } = validate(notifySchema, req.body)
   if (!ok) return res.status(400).json({ success: false, error })
+
+  // Persist to DB (silently skip if already signed up or DB unavailable)
+  let alreadySignedUp = false
+  try {
+    const result = await pool.query(
+      `INSERT INTO notify_signups (email, product_interest, source_page)
+       VALUES ($1, 'doors', $2)
+       ON CONFLICT (email) DO NOTHING`,
+      [data.email, req.headers.referer || null]
+    )
+    alreadySignedUp = result.rowCount === 0
+  } catch (err) {
+    console.error('[notify] db error:', err.message)
+  }
+
+  // If they're already signed up, skip the emails and return quietly
+  if (alreadySignedUp) {
+    return res.json({ success: true })
+  }
 
   await Promise.all([
     sendEmail({

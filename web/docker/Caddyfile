@@ -1,6 +1,5 @@
-# TradiCore Lumber and Products — Caddy reverse proxy with automatic TLS
-# Replace the domain below with your actual domain before deploying.
-# Caddy will obtain and renew a Let's Encrypt certificate automatically.
+# TradiCore + First Golden Logistics — Caddy reverse proxy with automatic TLS
+# Caddy obtains and renews Let's Encrypt certificates for all domains automatically.
 
 {$DOMAIN:localhost} {
     # API routes → Express container
@@ -33,6 +32,48 @@
 
     log {
         output file /var/log/caddy/access.log {
+            roll_size 10mb
+            roll_keep 5
+        }
+    }
+}
+
+# ── First Golden Logistics — static site ─────────────────────────────────────
+
+# Redirect www → apex
+www.firstgoldenlogistics.com {
+    redir https://firstgoldenlogistics.com{uri} permanent
+}
+
+firstgoldenlogistics.com {
+    # Form submissions → shared API container
+    handle /api/* {
+        reverse_proxy api:3001
+    }
+
+    # Everything else → static files
+    handle {
+        root * /srv/fgl
+        file_server
+    }
+
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Frame-Options           "SAMEORIGIN"
+        X-Content-Type-Options    "nosniff"
+        Referrer-Policy           "strict-origin-when-cross-origin"
+        Permissions-Policy        "camera=(), microphone=(), geolocation=()"
+        -Server
+    }
+
+    tls {
+        protocols tls1.2 tls1.3
+    }
+
+    encode gzip
+
+    log {
+        output file /var/log/caddy/fgl-access.log {
             roll_size 10mb
             roll_keep 5
         }

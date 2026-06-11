@@ -6,6 +6,7 @@ COPY package.json package-lock.json ./
 RUN npm ci --omit=dev --prefer-offline
 
 COPY src/ ./src/
+COPY migrations/ ./migrations/
 
 ENV NODE_ENV=production
 EXPOSE 3001

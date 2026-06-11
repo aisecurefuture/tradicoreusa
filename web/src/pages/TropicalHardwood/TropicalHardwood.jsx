@@ -76,8 +76,8 @@ export default function TropicalHardwood() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <p className="font-semibold text-sm">
-            Tropical Hardwood &amp; Lumber — <span className="font-bold">Coming Soon</span>.
-            Orders will be available in 2–3 months. <a href="/contact?type=hardwood" className="underline hover:no-underline font-bold">Request a quote</a> or{' '}
+            Tropical Hardwood &amp; Lumber — <span className="font-bold">Coming Soon</span>.{' '}
+            <a href="/contact?type=hardwood" className="underline hover:no-underline font-bold">Request a quote</a> or{' '}
             <a href="/contact" className="underline hover:no-underline font-bold">contact us</a> in the meantime.
           </p>
         </div>

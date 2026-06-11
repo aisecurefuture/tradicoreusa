@@ -67,6 +67,8 @@ export default function Footer() {
                 ['Contact / Quote',  '/contact'],
                 ['Trade Accounts',   '/trade'],
                 ['FAQ',              '/faq'],
+                ['Privacy Policy',   '/privacy'],
+                ['Cookie Policy',    '/cookie-policy'],
               ].map(([label, href]) => (
                 <li key={href}>
                   <Link to={href} className="text-white/60 hover:text-accent transition-colors">{label}</Link>
@@ -128,8 +130,11 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-site py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/40">
-          <p>© {new Date().getFullYear()} TradiCore Lumber and Products. All rights reserved.</p>
-          <p>Traditional Precision. Premium Supply.</p>
+          <p>© {new Date().getFullYear()} TradiCore Lumber and Products LLC. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link to="/privacy" className="hover:text-white/70 transition-colors">Privacy Policy</Link>
+            <Link to="/cookie-policy" className="hover:text-white/70 transition-colors">Cookie Policy</Link>
+          </div>
         </div>
       </div>
     </footer>

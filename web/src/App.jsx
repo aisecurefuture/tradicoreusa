@@ -19,6 +19,8 @@ import Account from './pages/Account/Account'
 import Trade from './pages/Trade/Trade'
 import Contact from './pages/Contact/Contact'
 import About from './pages/About/About'
+import Privacy from './pages/Legal/Privacy'
+import Cookies from './pages/Legal/Cookies'
 import FAQ from './pages/FAQ/FAQ'
 import Doors from './pages/Doors/Doors'
 
@@ -90,6 +92,8 @@ export default function App() {
         <Route path="/about"                         element={<About />} />
         <Route path="/faq"                           element={<FAQ />} />
         <Route path="/trade"                         element={<Trade />} />
+        <Route path="/privacy"                       element={<Privacy />} />
+        <Route path="/cookie-policy"                 element={<Cookies />} />
         <Route path="*"                              element={<NotFound />} />
       </Routes>
 

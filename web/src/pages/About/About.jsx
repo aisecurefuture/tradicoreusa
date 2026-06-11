@@ -52,7 +52,7 @@ const TEAM = [
 const TIMELINE = [
   { year: '2022', event: 'First sourcing trip to Suriname. Identified Basralocus and Bruinhart as primary species with consistent supply and exceptional durability.' },
   { year: '2023', event: 'Established direct supply agreements with Surinamese forestry partners. First container shipment of hardwood arrived in Chicago.' },
-  { year: '2024', event: 'Expanded to engineered moulding and trim to serve the full millwork needs of residential and commercial contractors. Pine and Malacca moulding pricing is comparable to MDF market rates.' },
+  { year: '2024', event: 'Expanded to engineered moulding and trim to serve the full millwork needs of residential and commercial contractors. Pine and Malacca moulding pricing is better than MDF market rates.' },
   { year: '2025', event: 'Launched TradiCore Lumber and Products online — bringing wholesale hardwood and moulding pricing to the broader trade market.' },
   { year: '2026', event: 'Door line in development. Expanding tropical species catalog to 12 verified species with full technical documentation.' },
 ]

@@ -80,7 +80,7 @@ export default function About() {
               distributors, manufacturers, and commercial projects throughout North America.
             </p>
             <p className="text-accent text-sm font-semibold">
-              South American hardwood sourcing launching in approximately 3 months — <a href="/contact" className="underline hover:no-underline">get in touch</a> to be notified.
+              South American hardwood sourcing coming soon — <a href="/contact" className="underline hover:no-underline">get in touch</a> to be notified.
             </p>
           </div>
         </div>

@@ -358,7 +358,7 @@ function MouldingQuoteForm({ user }) {
               className={`input-base ${errors.category ? 'border-red-400' : ''}`}>
               <option value="">Select category…</option>
               {mouldingCategories.map(c => (
-                <option key={c.slug} value={c.slug}>{c.name}</option>
+                <option key={c.slug} value={c.slug}>{c.label}</option>
               ))}
               <option value="multiple">Multiple categories</option>
               <option value="custom">Custom profile</option>

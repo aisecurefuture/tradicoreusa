@@ -220,7 +220,6 @@ const speciesData = [
   { code: 'ROK', name: 'Rode Kabbes',    tradeName: 'Red Chicken-Wing',       apps: ['Construction', 'Beams'], slug: 'rode-kabbes' },
   { code: 'KOE', name: 'Koenatepi',      tradeName: 'White Sourwood',         apps: ['Furniture', 'Cabinets'], slug: 'koenatepi' },
   { code: 'BRH', name: 'Bruinhart',      tradeName: 'Chicken-wing Wood',      apps: ['Luxury Furn.', 'Veneer'],slug: 'bruinhart' },
-  { code: 'GRH', name: 'Groenhart',      tradeName: 'Rosewood / Purple Sand.', apps: ['Carving', 'Luxury'],   slug: 'groenhart' },
 ]
 
 function HardwoodSection() {
@@ -406,7 +405,7 @@ function WhySection() {
     {
       icon: '🦋',
       title: 'Unique Species',
-      body: 'Species like Groenhart (Rosewood/Purple Sandalwood) and Zwarte (Dragon-Phoenix Sandalwood) are practically unavailable anywhere else in the U.S. market.',
+      body: 'Species like Zwarte (Dragon-Phoenix Sandalwood) and Bruinhart are practically unavailable anywhere else in the U.S. market.',
     },
   ]
 

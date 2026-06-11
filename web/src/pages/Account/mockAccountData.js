@@ -91,7 +91,7 @@ export const mockHardwoodQuotes = [
     id: 'QH-20250601',
     date: '2025-06-01',
     status: 'pending',
-    species: 'Groenhart (GRH)',
+    species: 'Basralocus (BAS)',
     application: 'Structural Beams',
     volume: '1,200 bf',
     notes: 'Commercial project, need FSC cert if possible.',

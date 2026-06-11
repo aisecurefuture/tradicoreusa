@@ -29,7 +29,6 @@ const hardwoodLinks = [
   { label: 'ROK — Rode Kabbes',    href: '/species/rode-kabbes' },
   { label: 'KOE — Koenatepi',      href: '/species/koenatepi' },
   { label: 'BRH — Bruinhart',      href: '/species/bruinhart' },
-  { label: 'GRH — Groenhart',      href: '/species/groenhart' },
   { label: 'Request a Quote',      href: '/contact?mode=quote', divider: true },
 ]
 
@@ -125,7 +124,7 @@ export default function Navbar() {
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1">
             <NavDropdown label="Moulding & Trim" links={mouldingLinks} />
-            <NavDropdown label="Tropical Hardwood" links={hardwoodLinks} />
+            <NavDropdown label="Tropical Hardwood & Lumber" links={hardwoodLinks} />
             <Link to="/collections/doors" className="flex items-center gap-1.5 text-sm font-medium px-3 py-2 text-white/90 hover:text-white transition-colors">
               Doors
               <span className="text-[10px] font-semibold bg-amber-400 text-amber-900 px-1.5 py-0.5 rounded">Soon</span>
@@ -231,7 +230,7 @@ export default function Navbar() {
                 onClose={() => setMobileOpen(false)}
               />
               <MobileSection
-                label="Tropical Hardwood"
+                label="Tropical Hardwood & Lumber"
                 open={mobileSection === 'hardwood'}
                 onToggle={() => setMobileSection(s => s === 'hardwood' ? null : 'hardwood')}
                 links={hardwoodLinks}

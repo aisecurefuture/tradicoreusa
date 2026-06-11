@@ -69,6 +69,19 @@ export default function TropicalHardwood() {
 
   return (
     <Layout>
+      {/* Coming Soon banner */}
+      <div className="bg-accent text-primary">
+        <div className="container-site py-3 flex items-center justify-center gap-3 text-center">
+          <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <p className="font-semibold text-sm">
+            Tropical Hardwood &amp; Lumber — <span className="font-bold">Coming Soon</span>.
+            Orders will be available in 2–3 months. <a href="/contact?type=hardwood" className="underline hover:no-underline font-bold">Request a quote</a> or{' '}
+            <a href="/contact" className="underline hover:no-underline font-bold">contact us</a> in the meantime.
+          </p>
+        </div>
+      </div>
       {/* Hero */}
       <section
         className="relative py-20 md:py-28 overflow-hidden"
@@ -186,7 +199,7 @@ export default function TropicalHardwood() {
               },
               {
                 title: 'Unique Species Availability',
-                body: 'Species like Groenhart (Purple Sandalwood) and Zwarte (Dragon-Phoenix Sandalwood) are practically nonexistent in the U.S. secondary market. Our supply chain is one of the only legitimate commercial sources.',
+                body: 'Species like Zwarte (Dragon-Phoenix Sandalwood) and Bruinhart are practically nonexistent in the U.S. secondary market. Our supply chain is one of the only legitimate commercial sources.',
               },
               {
                 title: 'Shorter Supply Chain = Lower Cost',

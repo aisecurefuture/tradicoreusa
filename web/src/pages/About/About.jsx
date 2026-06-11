@@ -109,7 +109,7 @@ export default function About() {
                 <p>
                   We went directly to the source. Our supply partners in Suriname operate under
                   government-managed forestry concessions in one of the most biodiverse regions on earth.
-                  Species like Basralocus, Bruinhart, and Groenhart have been used for centuries in marine
+                  Species like Basralocus, Bruinhart, and Rode Locus have been used for centuries in marine
                   and structural applications across Europe and South America — but remain largely unknown
                   to North American builders.
                 </p>

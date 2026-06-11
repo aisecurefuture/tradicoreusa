@@ -235,13 +235,7 @@ export default function TropicalHardwood() {
             >
               Species Guide PDF
             </a>
-            <a
-              href={`/downloads/${encodeURIComponent('TradiCore_Tropical_Hardwood_VC_White_Paper_Rev1 05072026.pdf')}`}
-              download
-              className="btn-secondary"
-            >
-              White Paper PDF
-            </a>
+
           </div>
         </div>
       </section>

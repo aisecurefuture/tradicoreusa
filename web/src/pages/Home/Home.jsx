@@ -444,7 +444,6 @@ const downloads = [
   { label: 'Moulding Catalogue',         file: 'Moulding Catalogue.pdf',                                        category: 'moulding' },
   { label: 'TradiCore Moulding & Doors', file: 'TradiCore Moulding & Door catalog 04232026.pdf',                 category: 'moulding' },
   { label: 'Tropical Wood Species Guide',file: 'Tradicore Tropical Wood Species Offering.pdf',                   category: 'hardwood' },
-  { label: 'Hardwood White Paper',       file: 'TradiCore_Tropical_Hardwood_VC_White_Paper_Rev1 05072026.pdf',   category: 'hardwood' },
   { label: 'Professional Presentation',  file: 'TradiCore_Professional_Presentation 2.pdf',                      category: 'company' },
 ]
 

@@ -4,7 +4,6 @@ const downloads = [
   { label: 'Moulding Catalogue',         file: 'Moulding Catalogue.pdf' },
   { label: 'TradiCore Moulding & Doors', file: 'TradiCore Moulding & Door catalog 04232026.pdf' },
   { label: 'Tropical Hardwood Species',  file: 'Tradicore Tropical Wood Species Offering.pdf' },
-  { label: 'Hardwood White Paper',       file: 'TradiCore_Tropical_Hardwood_VC_White_Paper_Rev1 05072026.pdf' },
 ]
 
 export default function Footer() {

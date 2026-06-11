@@ -52,7 +52,7 @@ const TEAM = [
 const TIMELINE = [
   { year: '2022', event: 'First sourcing trip to Suriname. Identified Basralocus and Bruinhart as primary species with consistent supply and exceptional durability.' },
   { year: '2023', event: 'Established direct supply agreements with Surinamese forestry partners. First container shipment of hardwood arrived in Chicago.' },
-  { year: '2024', event: 'Expanded to MDF engineered moulding and trim to serve the full millwork needs of residential and commercial contractors.' },
+  { year: '2024', event: 'Expanded to engineered moulding and trim to serve the full millwork needs of residential and commercial contractors. Pine and Malacca moulding pricing is comparable to MDF market rates.' },
   { year: '2025', event: 'Launched TradiCore Lumber and Products online — bringing wholesale hardwood and moulding pricing to the broader trade market.' },
   { year: '2026', event: 'Door line in development. Expanding tropical species catalog to 12 verified species with full technical documentation.' },
 ]
@@ -140,9 +140,10 @@ export default function About() {
                   to North American builders.
                 </p>
                 <p>
-                  On the moulding side, we source MDF and engineered profiles designed for consistency and
-                  paintability — the profiles that installers actually want to work with, at prices that
-                  make volume orders viable.
+                  On the moulding side, we source Pine, MDF, and Malacca profiles designed for consistency and
+                  paintability — the profiles that installers actually want to work with. Our Pine and
+                  Malacca pricing is unbeatable: lower than MDF market prices in the USA, giving buyers
+                  a premium natural wood product at a cost that makes volume orders highly competitive.
                 </p>
                 <p>
                   Our goal is straightforward: be the most reliable, transparent wood products supplier

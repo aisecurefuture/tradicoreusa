@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Layout from '../../components/Layout/Layout'
 import { useAuth } from '../../context/AuthContext'
 import { useToast } from '../../context/ToastContext'
+import { events } from '../../lib/analytics'
 import { submitTradeInquiry } from '../../api/contact'
 
 const BENEFITS = [

@@ -86,6 +86,9 @@ const FROM_SALES     = process.env.FROM_SALES     || 'TradiCore Sales <sales@mai
 // Override where all inbound replies land — useful before real inboxes are set up
 const REPLY_TO       = process.env.REPLY_TO       || SALES_EMAIL
 
+// Strip newlines from any field used in email subject lines to prevent header injection
+const stripNL = (s = '') => String(s).replace(/[\r\n]/g, ' ').trim()
+
 // ── Routes ────────────────────────────────────────────────────────────────────
 
 // General contact
@@ -98,7 +101,7 @@ router.post('/contact', async (req, res) => {
       from:    FROM_NOREPLY,
       to:      TEAM_EMAIL,
       replyTo: REPLY_TO,
-      subject: `[Contact] ${data.subject} — ${data.name}`,
+      subject: `[Contact] ${stripNL(data.subject)} — ${stripNL(data.name)}`,
       html:    t.internalContact(data),
     }),
     sendEmail({
@@ -130,7 +133,7 @@ router.post('/quote', async (req, res) => {
       from:    FROM_NOREPLY,
       to:      toInternal,
       replyTo: REPLY_TO,
-      subject: `${subjectTag} ${data.name}${data.company ? ` — ${data.company}` : ''}`,
+      subject: `${subjectTag} ${stripNL(data.name)}${data.company ? ` — ${stripNL(data.company)}` : ''}`,
       html:    internalHtml,
     }),
     sendEmail({
@@ -154,7 +157,7 @@ router.post('/trade', async (req, res) => {
       from:    FROM_NOREPLY,
       to:      SALES_EMAIL,
       replyTo: REPLY_TO,
-      subject: `[Trade Application] ${data.firstName} ${data.lastName} — ${data.company}`,
+      subject: `[Trade Application] ${stripNL(data.firstName)} ${stripNL(data.lastName)} — ${stripNL(data.company)}`,
       html:    t.internalTradeApplication(data),
     }),
     sendEmail({
@@ -177,7 +180,7 @@ router.post('/notify', async (req, res) => {
     sendEmail({
       from:    FROM_NOREPLY,
       to:      SALES_EMAIL,
-      subject: `[Door Notify] ${data.email}`,
+      subject: `[Door Notify] ${stripNL(data.email)}`,
       html:    `<p>New door launch notification signup: <strong>${data.email}</strong></p>`,
     }),
     sendEmail({

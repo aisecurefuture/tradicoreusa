@@ -1,4 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { trackPageview } from './lib/analytics'
 import { useEffect } from 'react'
 import { useToast } from './context/ToastContext'
 import Toast from './components/Toast/Toast'
@@ -62,7 +63,7 @@ function NotFound() {
 
 function ScrollToTop() {
   const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  useEffect(() => { window.scrollTo(0, 0); trackPageview(pathname) }, [pathname])
   return null
 }
 

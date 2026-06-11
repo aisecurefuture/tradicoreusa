@@ -5,6 +5,7 @@ import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
 import { useToast } from '../../context/ToastContext'
 import { useAuth } from '../../context/AuthContext'
 import { submitContactForm, submitQuoteRequest } from '../../api/contact'
+import { events } from '../../lib/analytics'
 import { speciesList as speciesData } from '../../data/speciesData'
 import { mouldingCategories } from '../../data/mockData'
 
@@ -161,7 +162,7 @@ function HardwoodQuoteForm({ user, preselectedSpecies }) {
     setLoading(true)
     try {
       const res = await submitQuoteRequest({ type: 'hardwood', ...form })
-      if (res.success) { setDone(true) }
+      if (res.success) { events.quoteFormSubmit('hardwood'); setDone(true) }
       else { toast.error(res.error || 'Submission failed.') }
     } finally { setLoading(false) }
   }
@@ -314,7 +315,7 @@ function MouldingQuoteForm({ user }) {
     setLoading(true)
     try {
       const res = await submitQuoteRequest({ type: 'moulding', ...form })
-      if (res.success) { setDone(true) }
+      if (res.success) { events.quoteFormSubmit('moulding'); setDone(true) }
       else { toast.error(res.error || 'Submission failed.') }
     } finally { setLoading(false) }
   }

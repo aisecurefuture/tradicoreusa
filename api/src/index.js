@@ -2,10 +2,11 @@
 
 require('dotenv').config()
 
-const express  = require('express')
-const cors     = require('cors')
-const helmet   = require('helmet')
-const morgan   = require('morgan')
+const express   = require('express')
+const cors      = require('cors')
+const helmet    = require('helmet')
+const rateLimit = require('express-rate-limit')
+const morgan    = require('morgan')
 
 const contactRoutes = require('./routes/contact')
 
@@ -24,8 +25,11 @@ const allowedOrigins = (process.env.ALLOWED_ORIGINS || '')
 
 app.use(cors({
   origin: (origin, cb) => {
-    // Allow requests with no origin (server-to-server, curl, etc.)
-    if (!origin) return cb(null, true)
+    if (!origin) {
+      // In production, reject no-origin requests (blocks curl/bots in prod while allowing dev)
+      if (process.env.NODE_ENV === 'production') return cb(new Error('CORS: origin required'))
+      return cb(null, true)
+    }
     if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
       return cb(null, true)
     }
@@ -37,10 +41,19 @@ app.use(cors({
 
 app.use(express.json({ limit: '32kb' }))
 
-// ── Routes ────────────────────────────────────────────────────────────────────
-app.use('/api', contactRoutes)
+// Rate limiting — 10 form submissions per IP per 15 minutes
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, error: 'Too many requests. Please wait 15 minutes and try again.' },
+})
 
-// Health check
+// ── Routes ────────────────────────────────────────────────────────────────────
+app.use('/api', limiter, contactRoutes)
+
+// Health check (not rate-limited)
 app.get('/health', (_req, res) => res.json({ ok: true }))
 
 // 404 catch-all

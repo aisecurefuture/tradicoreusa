@@ -42,7 +42,7 @@ const TEAM = [
   },
   {
     name: 'Patrick Kelly',
-    title: 'Technology & Security',
+    title: 'Partner & Technology',
     bio: 'Leads website development, hosting, and infrastructure for TradiCore. Responsible for application security, data protection, and all digital systems that keep the platform reliable and secure.',
     initials: 'PK',
     linkedin: null,

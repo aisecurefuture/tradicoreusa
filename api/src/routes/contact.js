@@ -78,11 +78,11 @@ function validate(schema, body) {
   return { ok: true, data: result.data }
 }
 
-const TEAM_EMAIL    = process.env.TEAM_EMAIL    || 'info@tradicorelumber.com'
-const HARDWOOD_EMAIL = process.env.HARDWOOD_EMAIL || 'hardwood@tradicorelumber.com'
-const SALES_EMAIL   = process.env.SALES_EMAIL   || 'sales@tradicorelumber.com'
-const FROM_NOREPLY  = process.env.FROM_NOREPLY  || 'no-reply@tradicorelumber.com'
-const FROM_SALES    = process.env.FROM_SALES    || 'TradiCore Sales <sales@tradicorelumber.com>'
+const TEAM_EMAIL    = process.env.TEAM_EMAIL    || 'info@tradicoreusa.com'
+const HARDWOOD_EMAIL = process.env.HARDWOOD_EMAIL || 'hardwood@tradicoreusa.com'
+const SALES_EMAIL   = process.env.SALES_EMAIL   || 'sales@tradicoreusa.com'
+const FROM_NOREPLY  = process.env.FROM_NOREPLY  || 'no-reply@mail.tradicoreusa.com'
+const FROM_SALES    = process.env.FROM_SALES    || 'TradiCore Sales <sales@mail.tradicoreusa.com>'
 
 // ── Routes ────────────────────────────────────────────────────────────────────
 

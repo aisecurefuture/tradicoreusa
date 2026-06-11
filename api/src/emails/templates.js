@@ -26,12 +26,12 @@ const base = (content) => `
 <body>
   <div class="wrap">
     <div class="header">
-      <a class="logo" href="https://tradicorelumber.com">Tradi<span>Core</span> <span style="font-weight:400;font-size:14px;color:#ffffff99">Lumber and Products</span></a>
+      <a class="logo" href="https://tradicoreusa.com">Tradi<span>Core</span> <span style="font-weight:400;font-size:14px;color:#ffffff99">Lumber and Products</span></a>
     </div>
     <div class="body">${content}</div>
     <div class="footer">
       TradiCore Lumber and Products &bull; Chicago, IL &bull;
-      <a href="mailto:info@tradicorelumber.com" style="color:#C9A84C">info@tradicorelumber.com</a>
+      <a href="mailto:info@tradicoreusa.com" style="color:#C9A84C">info@tradicoreusa.com</a>
     </div>
   </div>
 </body>
@@ -133,7 +133,7 @@ exports.autoReplyContact = (d) => base(`
     <div class="value" style="white-space:pre-wrap;">${escHtml(d.message)}</div>
   </div>
   <hr/>
-  <p style="font-size:13px;color:#888;">If you have an urgent question, call us at <strong>312-555-0100</strong> or email <a href="mailto:info@tradicorelumber.com" style="color:#C9A84C;">info@tradicorelumber.com</a>.</p>
+  <p style="font-size:13px;color:#888;">If you have an urgent question, call us at <strong>312-555-0100</strong> or email <a href="mailto:info@tradicoreusa.com" style="color:#C9A84C;">info@tradicoreusa.com</a>.</p>
 `)
 
 exports.autoReplyQuote = (type, d) => base(`
@@ -150,7 +150,7 @@ exports.autoReplyQuote = (type, d) => base(`
     <div class="label">Linear feet</div><div class="value">${escHtml(String(d.linearFeet))} lf</div>
   </div>`}
   <hr/>
-  <p style="font-size:13px;color:#888;">Questions? Email <a href="mailto:${type === 'hardwood' ? 'hardwood' : 'sales'}@tradicorelumber.com" style="color:#C9A84C;">${type === 'hardwood' ? 'hardwood' : 'sales'}@tradicorelumber.com</a> or call <strong>312-555-0100</strong>.</p>
+  <p style="font-size:13px;color:#888;">Questions? Email <a href="mailto:${type === 'hardwood' ? 'hardwood' : 'sales'}@tradicoreusa.com" style="color:#C9A84C;">${type === 'hardwood' ? 'hardwood' : 'sales'}@tradicoreusa.com</a> or call <strong>312-555-0100</strong>.</p>
 `)
 
 exports.autoReplyTrade = (d) => base(`
@@ -162,7 +162,7 @@ exports.autoReplyTrade = (d) => base(`
     <div class="label">Product interest</div><div class="value">${(d.productInterest || []).join(', ')}</div>
   </div>
   <hr/>
-  <p style="font-size:13px;color:#888;">Questions? Email <a href="mailto:sales@tradicorelumber.com" style="color:#C9A84C;">sales@tradicorelumber.com</a>.</p>
+  <p style="font-size:13px;color:#888;">Questions? Email <a href="mailto:sales@tradicoreusa.com" style="color:#C9A84C;">sales@tradicoreusa.com</a>.</p>
 `)
 
 // ── Notify me (door launch) ───────────────────────────────────────────────────
@@ -170,7 +170,7 @@ exports.autoReplyNotify = (email) => base(`
   <h2>You're on the list.</h2>
   <p>We'll notify <strong>${escHtml(email)}</strong> as soon as the TradiCore door line is available for online ordering.</p>
   <hr/>
-  <p style="font-size:13px;color:#888;">In the meantime, browse our <a href="https://tradicorelumber.com/collections/moulding-trim" style="color:#C9A84C;">moulding & trim</a> and <a href="https://tradicorelumber.com/collections/tropical-hardwood" style="color:#C9A84C;">tropical hardwood</a> collections.</p>
+  <p style="font-size:13px;color:#888;">In the meantime, browse our <a href="https://tradicoreusa.com/collections/moulding-trim" style="color:#C9A84C;">moulding & trim</a> and <a href="https://tradicoreusa.com/collections/tropical-hardwood" style="color:#C9A84C;">tropical hardwood</a> collections.</p>
 `)
 
 function escHtml(str = '') {

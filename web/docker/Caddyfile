@@ -3,8 +3,15 @@
 # Caddy will obtain and renew a Let's Encrypt certificate automatically.
 
 {$DOMAIN:localhost} {
-    # Reverse proxy to the nginx container serving the React app
-    reverse_proxy web:80
+    # API routes → Express container
+    handle /api/* {
+        reverse_proxy api:3001
+    }
+
+    # Everything else → nginx serving the React SPA
+    handle {
+        reverse_proxy web:80
+    }
 
     # Security headers added at the TLS edge
     header {

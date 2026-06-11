@@ -1,55 +1,23 @@
-// Stubs — replace with real axios calls when backend is ready
+import axios from 'axios'
 
-async function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || '/api',
+  headers: { 'Content-Type': 'application/json' },
+  timeout: 15000,
+})
 
-export const submitContactForm = async (data) => {
+async function safe(fn) {
   try {
-    await delay(600)
-    console.log('[submitContactForm]', data)
-    return { success: true, data: { message: 'Your message has been received.' } }
+    const { data } = await fn()
+    return { success: true, data }
   } catch (err) {
-    return { success: false, error: err.message }
+    const message = err.response?.data?.error || err.message || 'Request failed'
+    return { success: false, error: message }
   }
 }
 
-export const submitQuoteRequest = async (data) => {
-  try {
-    await delay(600)
-    console.log('[submitQuoteRequest]', data)
-    return { success: true, data: { message: 'Quote request received. We will contact you within 1 business day.' } }
-  } catch (err) {
-    return { success: false, error: err.message }
-  }
-}
-
-export const submitNotifyRequest = async (email) => {
-  try {
-    await delay(400)
-    console.log('[submitNotifyRequest]', email)
-    return { success: true, data: { message: 'You\'re on the list!' } }
-  } catch (err) {
-    return { success: false, error: err.message }
-  }
-}
-
-export const submitTradeInquiry = async (data) => {
-  try {
-    await delay(600)
-    console.log('[submitTradeInquiry]', data)
-    return { success: true, data: { message: 'Trade account application received.' } }
-  } catch (err) {
-    return { success: false, error: err.message }
-  }
-}
-
-export const submitDistributorInquiry = async (data) => {
-  try {
-    await delay(600)
-    console.log('[submitDistributorInquiry]', data)
-    return { success: true, data: { message: 'Distributor inquiry received.' } }
-  } catch (err) {
-    return { success: false, error: err.message }
-  }
-}
+export const submitContactForm   = (data) => safe(() => api.post('/contact', data))
+export const submitQuoteRequest  = (data) => safe(() => api.post('/quote', data))
+export const submitNotifyRequest = (email) => safe(() => api.post('/notify', { email }))
+export const submitTradeInquiry  = (data) => safe(() => api.post('/trade', data))
+export const submitDistributorInquiry = (data) => safe(() => api.post('/trade', data))

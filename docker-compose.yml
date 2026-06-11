@@ -10,6 +10,17 @@ services:
       - internal
     # Not exposed to the host — Caddy proxies to it over the internal network
 
+  # ── Express API (Resend email handler) ────────────────────────────────────
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: ./api/.env
+    networks:
+      - internal
+    # Not exposed to the host — Caddy proxies /api/* to it
+
   # ── Caddy — TLS termination, Let's Encrypt, reverse proxy ─────────────────
   caddy:
     image: caddy:2.9-alpine
@@ -29,6 +40,7 @@ services:
       - internal
     depends_on:
       - web
+      - api
 
 networks:
   internal:

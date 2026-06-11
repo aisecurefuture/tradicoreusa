@@ -5,7 +5,7 @@ import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
 
 const FAQS = [
   {
-    category: 'Ordering & Pricing',
+    category: 'Ordering',
     items: [
       {
         q: 'What is the minimum order quantity?',
@@ -18,10 +18,6 @@ const FAQS = [
       {
         q: 'Can I get a quote before ordering?',
         a: 'Absolutely. Use the Contact & Quotes page to submit a hardwood or moulding quote request. We respond within 1 business day for standard requests, and same day for most trade account holders.',
-      },
-      {
-        q: 'Are prices shown inclusive of shipping?',
-        a: 'No. Prices shown are FOB Chicago warehouse. Shipping is calculated at checkout based on delivery zip code, order weight, and freight class. LTL freight is available for large orders.',
       },
     ],
   },
@@ -46,7 +42,7 @@ const FAQS = [
       },
       {
         q: 'How long are lead times for hardwood orders?',
-        a: 'Stock material ships within 5–10 business days from our Chicago warehouse. Custom or large-volume orders sourced from the next container ship typically take 8–14 weeks. We recommend reaching out 90+ days in advance for large projects.',
+        a: 'Stock material ships within 5–10 business days from our Midwest warehouse. Custom or large-volume orders sourced from the next container ship typically take 8–14 weeks. We recommend reaching out 90+ days in advance for large projects.',
       },
       {
         q: 'Can I get samples before ordering?',
@@ -59,7 +55,7 @@ const FAQS = [
     items: [
       {
         q: 'What material is the moulding made from?',
-        a: 'Our moulding and trim is manufactured from high-density MDF (medium-density fiberboard). MDF is dimensionally stable, resists warping, and provides a smooth, consistent surface ideal for paint finishes. It is not suitable for exterior or high-moisture applications.',
+        a: 'Our moulding and trim is manufactured from pine and Malacca. These species are dimensionally stable, easy to machine, and provide a smooth, consistent surface ideal for paint finishes. Not suitable for exterior or high-moisture applications.',
       },
       {
         q: 'Is the moulding pre-primed?',
@@ -109,7 +105,7 @@ const FAQS = [
       },
       {
         q: 'Can I pay by ACH bank transfer?',
-        a: 'Yes — ACH is our preferred payment method for trade accounts. There are no processing fees and settlement typically takes 3–5 business days. Credit card (Visa, MC, Amex) and PayPal are also accepted; a 2.9% + $0.30 processing fee applies to card payments.',
+        a: 'Yes — ACH is our preferred payment method for trade accounts. There are no processing fees and settlement typically takes 3–5 business days.',
       },
     ],
   },
@@ -212,7 +208,6 @@ export default function FAQ() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/contact" className="btn-primary">Send Us a Message</Link>
-                <a href="tel:+12247156452" className="btn-outline-white">Call 224-715-6452</a>
               </div>
             </div>
           </main>

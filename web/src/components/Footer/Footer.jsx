@@ -130,7 +130,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-site py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/40">
-          <p>© {new Date().getFullYear()} TradiCore Lumber and Products LLC. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} TradiCore LLC. All rights reserved.</p>
           <div className="flex gap-4">
             <Link to="/privacy" className="hover:text-white/70 transition-colors">Privacy Policy</Link>
             <Link to="/cookie-policy" className="hover:text-white/70 transition-colors">Cookie Policy</Link>

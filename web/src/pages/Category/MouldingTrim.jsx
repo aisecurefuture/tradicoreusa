@@ -32,9 +32,9 @@ export default function MouldingTrim() {
             { label: 'Moulding & Trim' },
           ]} />
           <SectionHeader
-            eyebrow="MDF & Engineered Wood Profiles"
+            eyebrow="Pine & Malacca Profiles"
             title="Moulding & Trim"
-            subtitle="Factory-direct profiles in MDF, pine, poplar, and falcata — raw, primed, painted, or vinyl-wrapped."
+            subtitle="Factory-direct profiles in pine and Malacca — raw, primed, painted, or vinyl-wrapped."
             light
           />
         </div>

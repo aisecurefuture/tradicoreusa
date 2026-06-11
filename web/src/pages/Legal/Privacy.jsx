@@ -2,7 +2,7 @@ import Layout from '../../components/Layout/Layout'
 import { Link } from 'react-router-dom'
 
 const EFFECTIVE = 'June 11, 2026'
-const COMPANY   = 'TradiCore Lumber and Products LLC'
+const COMPANY   = 'TradiCore LLC'
 const EMAIL     = 'tradicoreusa@gmail.com'
 const ADDRESS   = '1100 Sheridan Rd., Unit 5, Winthrop Harbor, IL 60096'
 
@@ -42,7 +42,7 @@ export default function Privacy() {
               <li>Quote request forms — the above plus product details (species, volume, profile, delivery state).</li>
               <li>Trade account applications — business name, business type, contractor license number, annual purchase volume, and product interest.</li>
               <li>Account registration — name, email address, and password (stored as a secure hash).</li>
-              <li>Order and checkout — billing/shipping address, order details, and payment information. Payment card data is processed directly by our payment processor and is never stored on our servers.</li>
+              <li>Order and checkout — billing/shipping address, order details, and payment information. We accept ACH bank transfer; payment details are processed securely and are never stored on our servers.</li>
               <li>Door launch notifications — email address only.</li>
             </ul>
 
@@ -72,7 +72,7 @@ export default function Privacy() {
             <ul className="list-disc pl-5 space-y-1">
               <li><strong>Email delivery (Resend):</strong> we use Resend to deliver transactional emails. Your name and email are transmitted to their servers solely to send the email.</li>
               <li><strong>Analytics providers:</strong> Google Analytics and PostHog receive anonymized usage data. See their respective privacy policies for how they handle that data.</li>
-              <li><strong>Payment processors:</strong> Stripe and/or PayPal process payment transactions. We pass only the minimum information required to complete your payment.</li>
+              <li><strong>Payment processing:</strong> ACH bank transfers are processed through our banking partner. We pass only the minimum information required to complete your payment.</li>
               <li><strong>Legal requirements:</strong> if required by law, subpoena, or to protect our legal rights.</li>
             </ul>
           </Section>
@@ -96,7 +96,7 @@ export default function Privacy() {
             <p>
               Our website is served over HTTPS. Our API enforces rate limiting, strict CORS policies, and input validation
               on all form submissions. Passwords are hashed using industry-standard algorithms and never stored in plain text.
-              Payment data is handled entirely by PCI-compliant third-party processors — we never see or store full card numbers.
+              Payment data is handled securely — we never store your bank account details on our servers.
             </p>
             <p>
               No method of transmission over the internet is 100% secure. While we take reasonable precautions, we cannot

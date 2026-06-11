@@ -55,7 +55,7 @@ export default function Cookies() {
         <div className="container-site max-w-3xl">
 
           <p className="text-body leading-relaxed mb-10">
-            This Cookie Policy explains how TradiCore Lumber and Products LLC ("TradiCore," "we," "us") uses
+            This Cookie Policy explains how TradiCore LLC ("TradiCore," "we," "us") uses
             cookies and similar tracking technologies on <strong>tradicoreusa.com</strong>. It should be read
             alongside our <Link to="/privacy" className="text-accent hover:underline">Privacy Policy</Link>.
           </p>
@@ -101,14 +101,6 @@ export default function Cookies() {
               <li>
                 <strong>PostHog</strong> — product analytics.{' '}
                 <a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">PostHog Privacy Policy</a>
-              </li>
-              <li>
-                <strong>Stripe</strong> — payment processing (checkout pages only).{' '}
-                <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Stripe Privacy Policy</a>
-              </li>
-              <li>
-                <strong>PayPal</strong> — payment processing (checkout pages only).{' '}
-                <a href="https://www.paypal.com/us/legalhub/privacy-full" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">PayPal Privacy Policy</a>
               </li>
             </ul>
           </Section>

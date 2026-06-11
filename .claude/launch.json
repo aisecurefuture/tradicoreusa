@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "tradicore-dev",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /Users/patrickkelly/Documents/tradicoreusa/web && npm run dev"],
+      "port": 5173,
+      "autoPort": false
+    }
+  ]
+}

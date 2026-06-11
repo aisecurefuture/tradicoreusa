@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0D2137;
+  --color-primary-light: #1A3A5C;
+  --color-accent: #C9A84C;
+  --color-accent-light: #DDB96A;
+  --color-bg: #FAF7F2;
+  --color-bg-warm: #F3EDE3;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B7280;
+  --color-border: #E5DDD0;
+  --color-success: #2D6A4F;
+  --color-error: #C62828;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-primary font-semibold px-6 py-3 rounded transition-all duration-200 hover:bg-accent-light active:scale-95 inline-flex items-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-accent text-accent font-semibold px-6 py-3 rounded transition-all duration-200 hover:bg-accent hover:text-primary active:scale-95 inline-flex items-center gap-2;
+  }
+
+  .btn-outline-white {
+    @apply border-2 border-white text-white font-semibold px-6 py-3 rounded transition-all duration-200 hover:bg-white hover:text-primary active:scale-95 inline-flex items-center gap-2;
+  }
+
+  .btn-ghost {
+    @apply text-primary font-medium px-4 py-2 rounded transition-colors duration-200 hover:bg-bg-warm inline-flex items-center gap-2;
+  }
+
+  .card {
+    @apply bg-white rounded-lg border border-border shadow-sm overflow-hidden;
+  }
+
+  .section-heading {
+    @apply font-heading text-3xl font-bold text-primary mb-2;
+  }
+
+  .section-sub {
+    @apply text-muted text-lg mb-8;
+  }
+
+  .input-base {
+    @apply w-full border border-border rounded px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition bg-white;
+  }
+
+  .label-base {
+    @apply block text-sm font-medium text-primary mb-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold;
+  }
+
+  .badge-coming-soon {
+    @apply badge bg-amber-100 text-amber-800;
+  }
+
+  .badge-in-stock {
+    @apply badge bg-green-100 text-green-800;
+  }
+
+  .badge-new {
+    @apply badge bg-blue-100 text-blue-800;
+  }
+
+  .container-site {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth dropdown animations */
+.dropdown-enter {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+.dropdown-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 150ms, transform 150ms;
+}
+.dropdown-exit {
+  opacity: 1;
+}
+.dropdown-exit-active {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 150ms, transform 150ms;
+}
+
+/* Toast animations */
+@keyframes slideInRight {
+  from { transform: translateX(110%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+.toast-enter {
+  animation: slideInRight 0.3s ease forwards;
+}
+.toast-exit {
+  animation: fadeOut 0.3s ease forwards;
+}

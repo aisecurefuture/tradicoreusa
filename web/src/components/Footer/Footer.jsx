@@ -19,7 +19,7 @@ export default function Footer() {
                 <img
                   src="/logo.png"
                   alt="TradiCore Lumber and Products"
-                  className="h-12 w-auto"
+                  className="h-16 w-auto"
                 />
               </div>
             </Link>

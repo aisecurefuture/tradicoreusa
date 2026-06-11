@@ -113,11 +113,11 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center flex-shrink-0">
-            <div className="bg-white rounded-md px-3 py-1.5">
+            <div className="bg-white rounded-md px-2 py-0.5">
               <img
                 src="/logo.png"
                 alt="TradiCore Lumber and Products"
-                className="h-10 w-auto"
+                className="h-14 w-auto"
               />
             </div>
           </Link>

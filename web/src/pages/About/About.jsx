@@ -72,10 +72,15 @@ export default function About() {
             <h1 className="font-heading text-4xl lg:text-5xl font-bold leading-tight mb-5">
               Wood supply, without the runaround.
             </h1>
-            <p className="text-white/70 text-lg leading-relaxed">
-              TradiCore Lumber and Products is an Illinois-based wood products company bringing premium South American
-              tropical hardwoods and engineered moulding directly to contractors, builders, and dealers
-              across the United States.
+            <p className="text-white/70 text-lg leading-relaxed mb-4">
+              Tradicore LLC supplies premium softwood products through trusted manufacturing partners
+              in Asia and is expanding into direct-source hardwood products from South America. By
+              sourcing directly from harvest operations and eliminating middlemen, we provide
+              competitive pricing, consistent quality, and reliable supply chain solutions for
+              distributors, manufacturers, and commercial projects throughout North America.
+            </p>
+            <p className="text-accent text-sm font-semibold">
+              South American hardwood sourcing launching in approximately 3 months — <a href="/contact" className="underline hover:no-underline">get in touch</a> to be notified.
             </p>
           </div>
         </div>

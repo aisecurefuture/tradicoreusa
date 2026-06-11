@@ -31,7 +31,7 @@ const base = (content) => `
     <div class="body">${content}</div>
     <div class="footer">
       TradiCore Lumber and Products &bull; Chicago, IL &bull;
-      <a href="mailto:info@tradicoreusa.com" style="color:#C9A84C">info@tradicoreusa.com</a>
+      <a href="mailto:tradicoreusa@gmail.com" style="color:#C9A84C">tradicoreusa@gmail.com</a>
     </div>
   </div>
 </body>
@@ -133,7 +133,7 @@ exports.autoReplyContact = (d) => base(`
     <div class="value" style="white-space:pre-wrap;">${escHtml(d.message)}</div>
   </div>
   <hr/>
-  <p style="font-size:13px;color:#888;">If you have an urgent question, call us at <strong>312-555-0100</strong> or email <a href="mailto:info@tradicoreusa.com" style="color:#C9A84C;">info@tradicoreusa.com</a>.</p>
+  <p style="font-size:13px;color:#888;">If you have an urgent question, call us at <strong>224-715-6452</strong> or email <a href="mailto:tradicoreusa@gmail.com" style="color:#C9A84C;">tradicoreusa@gmail.com</a>.</p>
 `)
 
 exports.autoReplyQuote = (type, d) => base(`
@@ -150,7 +150,7 @@ exports.autoReplyQuote = (type, d) => base(`
     <div class="label">Linear feet</div><div class="value">${escHtml(String(d.linearFeet))} lf</div>
   </div>`}
   <hr/>
-  <p style="font-size:13px;color:#888;">Questions? Email <a href="mailto:${type === 'hardwood' ? 'hardwood' : 'sales'}@tradicoreusa.com" style="color:#C9A84C;">${type === 'hardwood' ? 'hardwood' : 'sales'}@tradicoreusa.com</a> or call <strong>312-555-0100</strong>.</p>
+  <p style="font-size:13px;color:#888;">Questions? Email <a href="mailto:tradicoreusa@gmail.com" style="color:#C9A84C;">tradicoreusa@gmail.com</a> or call <strong>224-715-6452</strong>.</p>
 `)
 
 exports.autoReplyTrade = (d) => base(`
@@ -162,7 +162,7 @@ exports.autoReplyTrade = (d) => base(`
     <div class="label">Product interest</div><div class="value">${(d.productInterest || []).join(', ')}</div>
   </div>
   <hr/>
-  <p style="font-size:13px;color:#888;">Questions? Email <a href="mailto:sales@tradicoreusa.com" style="color:#C9A84C;">sales@tradicoreusa.com</a>.</p>
+  <p style="font-size:13px;color:#888;">Questions? Email <a href="mailto:tradicoreusa@gmail.com" style="color:#C9A84C;">tradicoreusa@gmail.com</a>.</p>
 `)
 
 // ── Notify me (door launch) ───────────────────────────────────────────────────

@@ -63,7 +63,7 @@ function ProfileTab({ user, token, updateUser }) {
         </div>
         <div>
           <label className="block text-sm font-medium text-primary mb-1.5">Phone</label>
-          <input type="tel" value={form.phone} onChange={set('phone')} className="input-base" placeholder="312-555-0100" />
+          <input type="tel" value={form.phone} onChange={set('phone')} className="input-base" placeholder="224-715-6452" />
         </div>
         <div>
           <label className="block text-sm font-medium text-primary mb-1.5">Company</label>
@@ -91,7 +91,7 @@ function ProfileTab({ user, token, updateUser }) {
             </svg>
             <span className="text-sm font-semibold text-accent">Trade Account Active</span>
           </div>
-          <p className="text-xs text-muted">Your account has wholesale pricing enabled. Contact us at <a href="mailto:sales@tradicoreusa.com" className="text-accent hover:underline">sales@tradicoreusa.com</a> with questions.</p>
+          <p className="text-xs text-muted">Your account has wholesale pricing enabled. Contact us at <a href="mailto:tradicoreusa@gmail.com" className="text-accent hover:underline">tradicoreusa@gmail.com</a> with questions.</p>
         </div>
       )}
     </div>
@@ -358,8 +358,8 @@ function QuotesTab() {
         <p className="text-sm text-muted mb-3">
           For orders over 2,000 bf or container loads, contact our hardwood team directly for the best pricing.
         </p>
-        <a href="mailto:hardwood@tradicoreusa.com" className="text-sm text-accent hover:underline font-medium">
-          hardwood@tradicoreusa.com →
+        <a href="mailto:tradicoreusa@gmail.com" className="text-sm text-accent hover:underline font-medium">
+          tradicoreusa@gmail.com →
         </a>
       </div>
     </div>

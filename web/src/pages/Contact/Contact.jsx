@@ -88,7 +88,7 @@ function GeneralForm({ user }) {
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-primary mb-1.5">Phone</label>
-          <input type="tel" value={form.phone} onChange={set('phone')} className="input-base" placeholder="312-555-0100" />
+          <input type="tel" value={form.phone} onChange={set('phone')} className="input-base" placeholder="224-715-6452" />
         </div>
         <div>
           <label className="block text-sm font-medium text-primary mb-1.5">Company</label>
@@ -173,7 +173,7 @@ function HardwoodQuoteForm({ user, preselectedSpecies }) {
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
       <div className="bg-wood-light/20 border border-wood/20 rounded-xl p-4 text-sm text-body">
         We respond to hardwood quotes within <strong>1 business day</strong>. For container-load inquiries (&gt;5,000 bf) email
-        {' '}<a href="mailto:hardwood@tradicoreusa.com" className="text-accent hover:underline">hardwood@tradicoreusa.com</a> directly.
+        {' '}<a href="mailto:tradicoreusa@gmail.com" className="text-accent hover:underline">tradicoreusa@gmail.com</a> directly.
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
@@ -524,7 +524,7 @@ export default function Contact() {
                   </svg>
                   <div>
                     <p className="font-medium text-primary">General inquiries</p>
-                    <a href="mailto:info@tradicoreusa.com" className="text-accent hover:underline">info@tradicoreusa.com</a>
+                    <a href="mailto:tradicoreusa@gmail.com" className="text-accent hover:underline">tradicoreusa@gmail.com</a>
                   </div>
                 </li>
                 <li className="flex gap-3">
@@ -533,7 +533,7 @@ export default function Contact() {
                   </svg>
                   <div>
                     <p className="font-medium text-primary">Hardwood sales</p>
-                    <a href="mailto:hardwood@tradicoreusa.com" className="text-accent hover:underline">hardwood@tradicoreusa.com</a>
+                    <a href="mailto:tradicoreusa@gmail.com" className="text-accent hover:underline">tradicoreusa@gmail.com</a>
                   </div>
                 </li>
                 <li className="flex gap-3">
@@ -542,7 +542,7 @@ export default function Contact() {
                   </svg>
                   <div>
                     <p className="font-medium text-primary">Trade accounts</p>
-                    <a href="mailto:sales@tradicoreusa.com" className="text-accent hover:underline">sales@tradicoreusa.com</a>
+                    <a href="mailto:tradicoreusa@gmail.com" className="text-accent hover:underline">tradicoreusa@gmail.com</a>
                   </div>
                 </li>
                 <li className="flex gap-3">
@@ -551,7 +551,7 @@ export default function Contact() {
                   </svg>
                   <div>
                     <p className="font-medium text-primary">Phone / text</p>
-                    <a href="tel:+13125550100" className="text-accent hover:underline">312-555-0100</a>
+                    <a href="tel:+12247156452" className="text-accent hover:underline">224-715-6452</a>
                   </div>
                 </li>
               </ul>

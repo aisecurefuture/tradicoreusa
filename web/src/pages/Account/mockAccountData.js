@@ -48,7 +48,7 @@ export const mockAddresses = [
     city: 'Chicago',
     state: 'IL',
     zip: '60642',
-    phone: '312-555-0100',
+    phone: '224-715-6452',
   },
   {
     id: 'addr_002',
@@ -60,7 +60,7 @@ export const mockAddresses = [
     city: 'Chicago',
     state: 'IL',
     zip: '60614',
-    phone: '312-555-0100',
+    phone: '224-715-6452',
   },
 ]
 

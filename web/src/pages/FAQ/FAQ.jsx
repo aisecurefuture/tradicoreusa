@@ -88,7 +88,7 @@ const FAQS = [
       },
       {
         q: 'What if my order arrives damaged?',
-        a: 'Note any visible damage on the delivery receipt before signing. Photograph the damage and contact us within 48 hours at info@tradicoreusa.com. We will arrange replacement or credit — we do not charge restocking fees for carrier-damaged goods.',
+        a: 'Note any visible damage on the delivery receipt before signing. Photograph the damage and contact us within 48 hours at tradicoreusa@gmail.com. We will arrange replacement or credit — we do not charge restocking fees for carrier-damaged goods.',
       },
     ],
   },
@@ -212,7 +212,7 @@ export default function FAQ() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/contact" className="btn-primary">Send Us a Message</Link>
-                <a href="tel:+13125550100" className="btn-outline-white">Call 312-555-0100</a>
+                <a href="tel:+12247156452" className="btn-outline-white">Call 224-715-6452</a>
               </div>
             </div>
           </main>

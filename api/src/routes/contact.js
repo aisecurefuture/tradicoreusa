@@ -78,9 +78,9 @@ function validate(schema, body) {
   return { ok: true, data: result.data }
 }
 
-const TEAM_EMAIL     = process.env.TEAM_EMAIL     || 'info@tradicoreusa.com'
-const HARDWOOD_EMAIL = process.env.HARDWOOD_EMAIL || 'hardwood@tradicoreusa.com'
-const SALES_EMAIL    = process.env.SALES_EMAIL    || 'sales@tradicoreusa.com'
+const TEAM_EMAIL     = process.env.TEAM_EMAIL     || 'tradicoreusa@gmail.com'
+const HARDWOOD_EMAIL = process.env.HARDWOOD_EMAIL || 'tradicoreusa@gmail.com'
+const SALES_EMAIL    = process.env.SALES_EMAIL    || 'tradicoreusa@gmail.com'
 const FROM_NOREPLY   = process.env.FROM_NOREPLY   || 'no-reply@mail.tradicoreusa.com'
 const FROM_SALES     = process.env.FROM_SALES     || 'TradiCore Sales <sales@mail.tradicoreusa.com>'
 // Override where all inbound replies land — useful before real inboxes are set up

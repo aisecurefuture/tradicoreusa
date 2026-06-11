@@ -164,7 +164,7 @@ export default function Register() {
                 <div>
                   <label className="block text-sm font-medium text-primary mb-1.5">Phone</label>
                   <input type="tel" autoComplete="tel" value={form.phone} onChange={set('phone')}
-                    className="input-base" placeholder="312-555-0100" />
+                    className="input-base" placeholder="224-715-6452" />
                 </div>
 
                 <div>

@@ -167,7 +167,7 @@ export default function Trade() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="#apply" className="btn-primary">Apply Now</a>
-              <a href="mailto:sales@tradicoreusa.com" className="btn-outline-white">
+              <a href="mailto:tradicoreusa@gmail.com" className="btn-outline-white">
                 Talk to Sales
               </a>
             </div>
@@ -430,10 +430,10 @@ export default function Trade() {
 
                   <p className="text-xs text-muted text-center">
                     Questions? Email us at{' '}
-                    <a href="mailto:sales@tradicoreusa.com" className="text-accent hover:underline">
-                      sales@tradicoreusa.com
+                    <a href="mailto:tradicoreusa@gmail.com" className="text-accent hover:underline">
+                      tradicoreusa@gmail.com
                     </a>
-                    {' '}or call <a href="tel:+13125550100" className="text-accent hover:underline">312-555-0100</a>.
+                    {' '}or call <a href="tel:+12247156452" className="text-accent hover:underline">224-715-6452</a>.
                   </p>
                 </form>
               </div>

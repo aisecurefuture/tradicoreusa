@@ -83,9 +83,9 @@ function AchPanel({ isLargeOrder }) {
       {/* ACH mandate */}
       <div className="bg-gray-50 border border-border rounded-lg p-4 text-xs text-muted leading-relaxed">
         <p className="font-semibold text-primary mb-1">ACH Debit Authorization</p>
-        By confirming your order, you authorize TradiCore LLC to initiate an ACH debit entry to the bank account you linked above for the amount of this order. This authorization is for a one-time debit unless you establish a recurring purchase agreement. You have the right to revoke this authorization by contacting us at{' '}
+        By confirming your order, you authorize TradiCore Lumber and Products to initiate an ACH debit entry to the bank account you linked above for the amount of this order. This authorization is for a one-time debit unless you establish a recurring purchase agreement. You have the right to revoke this authorization by contacting us at{' '}
         <a href="mailto:tradicoreusa@gmail.com" className="text-accent hover:underline">tradicoreusa@gmail.com</a>{' '}
-        prior to the settlement date. TradiCore LLC will not share your bank account information with any third party except as required to process this transaction.
+        prior to the settlement date. TradiCore Lumber and Products will not share your bank account information with any third party except as required to process this transaction.
       </div>
     </div>
   )
@@ -167,7 +167,7 @@ export default function Checkout() {
   })
 
   useEffect(() => {
-    document.title = 'Checkout | TradiCore USA'
+    document.title = 'Checkout | TradiCore Lumber and Products'
     // Auto-recommend ACH for large orders
     if (cartTotal >= 1000) setPaymentMethod('ach')
   }, [cartTotal])

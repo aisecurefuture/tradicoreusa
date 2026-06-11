@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom'
 
 const downloads = [
-  { label: 'Moulding Catalogue',          file: 'Moulding Catalogue.pdf' },
-  { label: 'TradiCore Moulding & Doors',  file: 'TradiCore Moulding & Door catalog 04232026.pdf' },
-  { label: 'Jiraw Moulding & Doors 2026', file: 'Jiraw Moulding & Door catalog 2026.pdf' },
-  { label: 'Jiraw Door Catalogue 2025',   file: 'Jiraw Door Catalogue 2025.pdf' },
-  { label: 'Tropical Hardwood Species',   file: 'Tradicore Tropical Wood Species Offering.pdf' },
-  { label: 'Hardwood White Paper',        file: 'TradiCore_Tropical_Hardwood_VC_White_Paper_Rev1 05072026.pdf' },
+  { label: 'Moulding Catalogue',         file: 'Moulding Catalogue.pdf' },
+  { label: 'TradiCore Moulding & Doors', file: 'TradiCore Moulding & Door catalog 04232026.pdf' },
+  { label: 'Tropical Hardwood Species',  file: 'Tradicore Tropical Wood Species Offering.pdf' },
+  { label: 'Hardwood White Paper',       file: 'TradiCore_Tropical_Hardwood_VC_White_Paper_Rev1 05072026.pdf' },
 ]
 
 export default function Footer() {
@@ -133,7 +131,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-site py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/40">
-          <p>© {new Date().getFullYear()} TradiCore LLC. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} TradiCore Lumber and Products. All rights reserved.</p>
           <p>Traditional Precision. Premium Supply.</p>
         </div>
       </div>

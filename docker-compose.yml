@@ -1,0 +1,40 @@
+services:
+
+  # ── React app (nginx serves the built static files) ────────────────────────
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      - internal
+    # Not exposed to the host — Caddy proxies to it over the internal network
+
+  # ── Caddy — TLS termination, Let's Encrypt, reverse proxy ─────────────────
+  caddy:
+    image: caddy:2.9-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"   # HTTP/3 (QUIC)
+    volumes:
+      - ./web/docker/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data          # TLS certificates — persisted across restarts
+      - caddy_config:/config      # Caddy config cache
+      - caddy_logs:/var/log/caddy
+    environment:
+      DOMAIN: ${DOMAIN:-localhost}
+    networks:
+      - internal
+    depends_on:
+      - web
+
+networks:
+  internal:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:
+  caddy_logs:

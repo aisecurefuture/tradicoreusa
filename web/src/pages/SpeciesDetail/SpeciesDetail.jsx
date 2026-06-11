@@ -46,7 +46,7 @@ export default function SpeciesDetail() {
       if (!s) { navigate('/collections/tropical-hardwood', { replace: true }); return }
       setSpecies(s)
       setLoading(false)
-      document.title = `${s.name} (${s.code}) | TradiCore USA`
+      document.title = `${s.name} (${s.code}) | TradiCore Lumber and Products`
     }, 150)
     return () => clearTimeout(t)
   }, [speciesSlug, navigate])

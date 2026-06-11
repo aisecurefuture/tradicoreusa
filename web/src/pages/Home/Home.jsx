@@ -65,7 +65,7 @@ function Hero() {
           Premium Wood Trim, Moulding&nbsp;&amp; Tropical&nbsp;Hardwood — Direct from the Source
         </h1>
         <p className="text-white/70 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-          TradiCore USA supplies contractors, builders, and architects with factory-direct MDF moulding and rare South American tropical hardwoods — not available through big-box retailers.
+          TradiCore Lumber and Products supplies contractors, builders, and architects with factory-direct MDF moulding and rare South American tropical hardwoods — not available through big-box retailers.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/collections/moulding-trim" className="btn-primary text-base px-8 py-4">
@@ -341,7 +341,7 @@ function DoorsSection() {
           <span className="badge-coming-soon mb-4 inline-block text-sm px-3 py-1">Coming Soon</span>
           <SectionHeader
             title="Door Line — Launching Soon"
-            subtitle="Shaker, Smooth Slab, Glass, and Oak Slab doors through our Jiraw manufacturing partnership. Available in standard sizes and custom dimensions."
+            subtitle="Shaker, Smooth Slab, Glass, and Oak Slab doors available in standard sizes and custom dimensions."
             center
           />
 
@@ -448,8 +448,6 @@ function WhySection() {
 const downloads = [
   { label: 'Moulding Catalogue',         file: 'Moulding Catalogue.pdf',                                        category: 'moulding' },
   { label: 'TradiCore Moulding & Doors', file: 'TradiCore Moulding & Door catalog 04232026.pdf',                 category: 'moulding' },
-  { label: 'Jiraw Door Catalogue 2025',  file: 'Jiraw Door Catalogue 2025.pdf',                                  category: 'doors' },
-  { label: 'Jiraw Moulding & Doors 2026',file: 'Jiraw Moulding & Door catalog 2026.pdf',                        category: 'doors' },
   { label: 'Tropical Wood Species Guide',file: 'Tradicore Tropical Wood Species Offering.pdf',                   category: 'hardwood' },
   { label: 'Hardwood White Paper',       file: 'TradiCore_Tropical_Hardwood_VC_White_Paper_Rev1 05072026.pdf',   category: 'hardwood' },
   { label: 'Professional Presentation',  file: 'TradiCore_Professional_Presentation 2.pdf',                      category: 'company' },
@@ -496,7 +494,7 @@ function DownloadsSection() {
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function Home() {
   useEffect(() => {
-    document.title = 'TradiCore USA — Premium Wood Products'
+    document.title = 'TradiCore Lumber and Products — Premium Wood Products'
   }, [])
 
   return (

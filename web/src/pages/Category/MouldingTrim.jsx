@@ -19,7 +19,7 @@ const categoryIcons = {
 
 export default function MouldingTrim() {
   useEffect(() => {
-    document.title = 'Moulding & Trim | TradiCore USA'
+    document.title = 'Moulding & Trim | TradiCore Lumber and Products'
   }, [])
 
   return (

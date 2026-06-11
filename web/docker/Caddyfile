@@ -1,0 +1,33 @@
+# TradiCore Lumber and Products — Caddy reverse proxy with automatic TLS
+# Replace the domain below with your actual domain before deploying.
+# Caddy will obtain and renew a Let's Encrypt certificate automatically.
+
+{$DOMAIN:localhost} {
+    # Reverse proxy to the nginx container serving the React app
+    reverse_proxy web:80
+
+    # Security headers added at the TLS edge
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Frame-Options           "SAMEORIGIN"
+        X-Content-Type-Options    "nosniff"
+        Content-Security-Policy   "default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com https://www.paypal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://placehold.co; connect-src 'self'; frame-src https://js.stripe.com https://www.paypal.com"
+        Referrer-Policy           "strict-origin-when-cross-origin"
+        Permissions-Policy        "camera=(), microphone=(), geolocation=()"
+        -Server
+    }
+
+    # Let Caddy handle ACME challenges automatically
+    tls {
+        protocols tls1.2 tls1.3
+    }
+
+    encode gzip
+
+    log {
+        output file /var/log/caddy/access.log {
+            roll_size 10mb
+            roll_keep 5
+        }
+    }
+}

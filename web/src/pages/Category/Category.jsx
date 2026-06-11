@@ -22,7 +22,7 @@ export default function Category() {
   const categoryLabel = categoryMeta?.label ?? deslugify(categorySlug)
 
   useEffect(() => {
-    document.title = `${categoryLabel} | TradiCore USA`
+    document.title = `${categoryLabel} | TradiCore Lumber and Products`
     setPage(1)
     // Simulate async load
     setLoading(true)

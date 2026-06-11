@@ -43,7 +43,7 @@ export const mockAddresses = [
     label: 'Office / Warehouse',
     default: true,
     name: 'Patrick Kelly',
-    company: 'TradiCore USA',
+    company: 'TradiCore Lumber and Products',
     address: '742 N Milwaukee Ave',
     city: 'Chicago',
     state: 'IL',

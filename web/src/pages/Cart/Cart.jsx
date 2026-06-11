@@ -30,7 +30,7 @@ export default function Cart() {
   const { toast } = useToast()
 
   useEffect(() => {
-    document.title = `Cart (${cartCount}) | TradiCore USA`
+    document.title = `Cart (${cartCount}) | TradiCore Lumber and Products`
   }, [cartCount])
 
   const handleRemove = (id) => {

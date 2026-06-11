@@ -72,7 +72,7 @@ export const allDoorProducts = doorCategories.flatMap(cat =>
     unit: 'piece',
     material: 'MDF',
     finish: 'Primed',
-    description: `${p.name} — part of the TradiCore door line powered by Jiraw. Available soon in standard sizes and custom dimensions.`,
+    description: `${p.name} — part of the TradiCore door line. Available soon in standard sizes and custom dimensions.`,
     imageUrl: p.imageUrl,
   }))
 )

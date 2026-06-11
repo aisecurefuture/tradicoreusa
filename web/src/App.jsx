@@ -15,33 +15,45 @@ import Checkout from './pages/Checkout/Checkout'
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
 import Account from './pages/Account/Account'
-
-// Phase-8+ placeholders
-const Placeholder = ({ title }) => (
-  <Layout>
-    <div className="min-h-[60vh] flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="font-heading text-3xl text-primary mb-2">{title}</h1>
-        <p className="text-muted">Coming in next phase</p>
-      </div>
-    </div>
-  </Layout>
-)
-const Doors             = () => <Placeholder title="Doors — Coming Soon" />
-const Contact           = () => <Placeholder title="Contact / Quote" />
-const About             = () => <Placeholder title="About Us" />
-const FAQ               = () => <Placeholder title="FAQ" />
-const Trade             = () => <Placeholder title="Trade Accounts" />
+import Trade from './pages/Trade/Trade'
+import Contact from './pages/Contact/Contact'
+import About from './pages/About/About'
+import FAQ from './pages/FAQ/FAQ'
+import Doors from './pages/Doors/Doors'
 
 function NotFound() {
   return (
     <Layout>
-      <div className="min-h-[70vh] flex items-center justify-center bg-bg">
-        <div className="text-center px-4">
-          <div className="font-heading text-8xl font-bold text-primary/10 mb-4 select-none">404</div>
-          <h1 className="font-heading text-3xl text-primary mb-2">Page Not Found</h1>
-          <p className="text-muted mb-8">We couldn't find what you were looking for.</p>
-          <a href="/" className="btn-primary">Back to Home</a>
+      <div className="min-h-[80vh] flex items-center justify-center bg-bg">
+        <div className="text-center px-4 max-w-md">
+          <div className="font-heading text-[120px] font-bold text-primary/8 leading-none select-none mb-2">
+            404
+          </div>
+          <h1 className="font-heading text-3xl font-bold text-primary mb-3">Page not found</h1>
+          <p className="text-muted mb-8 leading-relaxed">
+            We couldn't find the page you were looking for. It may have moved, or the link might be incorrect.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/" className="btn-primary justify-center">Back to Home</a>
+            <a href="/contact" className="btn-outline justify-center">Contact Us</a>
+          </div>
+          <div className="mt-10 pt-8 border-t border-gray-100">
+            <p className="text-xs text-muted mb-3">Looking for something specific?</p>
+            <div className="flex flex-wrap gap-2 justify-center">
+              {[
+                ['Moulding & Trim', '/collections/moulding-trim'],
+                ['Tropical Hardwood', '/collections/tropical-hardwood'],
+                ['Doors', '/collections/doors'],
+                ['Trade Accounts', '/trade'],
+                ['FAQ', '/faq'],
+              ].map(([label, href]) => (
+                <a key={href} href={href}
+                  className="text-xs px-3 py-1.5 rounded-full border border-gray-200 text-muted hover:border-accent hover:text-accent transition-colors">
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

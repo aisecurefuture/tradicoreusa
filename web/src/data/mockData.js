@@ -1,4 +1,4 @@
-// Moulding & Trim products (MDF/Engineered, from Jiraw supplier)
+// Moulding & Trim products (MDF/Engineered)
 
 const img = (name) =>
   `https://placehold.co/600x400/2B4A6B/FAF7F2?text=${encodeURIComponent(name)}`

@@ -78,7 +78,7 @@ export default function Register() {
         return
       }
       login(res.data.token, res.data.user)
-      toast.success('Account created! Welcome to TradiCore USA.')
+      toast.success('Account created! Welcome to TradiCore Lumber and Products.')
       navigate(form.tradeInterest ? '/trade' : '/account', { replace: true })
     } finally {
       setLoading(false)

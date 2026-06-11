@@ -378,7 +378,7 @@ export default function Account() {
   const setTab = (id) => setSearchParams({ tab: id })
 
   useEffect(() => {
-    document.title = 'My Account | TradiCore USA'
+    document.title = 'My Account | TradiCore Lumber and Products'
   }, [])
 
   // Redirect to login if not authenticated

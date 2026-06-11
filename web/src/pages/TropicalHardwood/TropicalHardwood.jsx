@@ -60,7 +60,7 @@ export default function TropicalHardwood() {
   const [activeFilter, setActiveFilter] = useState(null)
 
   useEffect(() => {
-    document.title = 'Tropical Hardwood Species | TradiCore USA'
+    document.title = 'Tropical Hardwood Species | TradiCore Lumber and Products'
   }, [])
 
   const filtered = activeFilter

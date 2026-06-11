@@ -53,7 +53,7 @@ export default function Product() {
       setProduct(p)
       setActiveImg(0)
       setLoading(false)
-      if (p) document.title = `${p.name} | TradiCore USA`
+      if (p) document.title = `${p.name} | TradiCore Lumber and Products`
     }, 150)
     return () => clearTimeout(t)
   }, [productSlug])

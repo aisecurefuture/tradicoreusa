@@ -52,7 +52,7 @@ function Hero() {
           )`
         }}
       />
-      <div className="container-site relative z-10 py-24 md:py-36 text-center">
+      <div className="container-site relative z-10 pt-16 pb-24 md:pt-24 md:pb-36 text-center">
         <p className="text-accent text-xs font-semibold tracking-[0.25em] uppercase mb-5">
           Premium Wood Products — From the Source to Your Home
         </p>

@@ -7,34 +7,29 @@ import { useToast } from '../../context/ToastContext'
 import { storage } from '../../utils/storage'
 
 // ── Trade Banner ──────────────────────────────────────────────────────────────
-function TradeBanner() {
-  const [visible, setVisible] = useState(() => !storage.get('tc_trade_banner_dismissed', false))
-
-  const dismiss = () => {
-    storage.set('tc_trade_banner_dismissed', true)
-    setVisible(false)
-  }
-
-  if (!visible) return null
-
-  return (
-    <div className="bg-accent text-primary">
-      <div className="container-site py-2.5 flex items-center justify-between gap-4">
-        <p className="text-sm font-medium">
-          Are you a contractor or builder?{' '}
-          <Link to="/trade" className="font-bold underline hover:no-underline">
-            Ask about trade pricing and Net&nbsp;30 terms →
-          </Link>
-        </p>
-        <button onClick={dismiss} className="flex-shrink-0 p-1 hover:opacity-70 transition-opacity" aria-label="Dismiss">
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  )
-}
+// Commented out until trade pricing / NET-30 terms are confirmed with Alan
+// function TradeBanner() {
+//   const [visible, setVisible] = useState(() => !storage.get('tc_trade_banner_dismissed', false))
+//   const dismiss = () => { storage.set('tc_trade_banner_dismissed', true); setVisible(false) }
+//   if (!visible) return null
+//   return (
+//     <div className="bg-accent text-primary">
+//       <div className="container-site py-2.5 flex items-center justify-between gap-4">
+//         <p className="text-sm font-medium">
+//           Are you a contractor or builder?{' '}
+//           <Link to="/trade" className="font-bold underline hover:no-underline">
+//             Ask about trade pricing and Net&nbsp;30 terms →
+//           </Link>
+//         </p>
+//         <button onClick={dismiss} className="flex-shrink-0 p-1 hover:opacity-70 transition-opacity" aria-label="Dismiss">
+//           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+//             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+//           </svg>
+//         </button>
+//       </div>
+//     </div>
+//   )
+// }
 
 // ── Hero ──────────────────────────────────────────────────────────────────────
 function Hero() {
@@ -499,7 +494,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <TradeBanner />
+      {/* <TradeBanner /> */}
       <Hero />
       <TrustStrips />
       <MouldingSection />

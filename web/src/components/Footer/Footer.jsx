@@ -14,16 +14,14 @@ export default function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded bg-accent flex items-center justify-center">
-                <svg viewBox="0 0 32 32" fill="none" className="w-5 h-5 text-primary">
-                  <path d="M16 4L4 10v6l12 6 12-6v-6L16 4z" fill="currentColor" opacity=".9"/>
-                  <path d="M4 16v6l12 6 12-6v-6" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-                </svg>
+            <Link to="/" className="inline-block mb-4">
+              <div className="bg-white rounded-md px-3 py-2">
+                <img
+                  src="/logo.png"
+                  alt="TradiCore Lumber and Products"
+                  className="h-12 w-auto"
+                />
               </div>
-              <span className="font-heading font-bold text-lg text-white">
-                Tradi<span className="text-accent">Core</span>
-              </span>
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-4">
               Premium Wood Trim, Moulding & Tropical Hardwood — Direct from the Source to Your Home.

@@ -49,7 +49,7 @@ function SpeciesGridCard({ species }) {
           <div className="flex gap-3">
             <span className="text-muted">Durability: <span className="text-primary font-medium">{species.durability?.split(' (')[0]}</span></span>
           </div>
-          <span className="font-bold text-primary">${species.price}<span className="text-muted font-normal">/bf</span></span>
+
         </div>
       </div>
     </Link>
@@ -145,9 +145,7 @@ export default function TropicalHardwood() {
               title="Browse All Species"
               subtitle="Click any species for full details, properties, and to request a quote."
             />
-            <p className="text-sm text-muted flex-shrink-0">
-              Prices from <span className="font-semibold text-primary">$8.00</span> – <span className="font-semibold text-primary">$45.00</span> / board ft
-            </p>
+
           </div>
 
           {/* Application filter pills */}

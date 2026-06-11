@@ -4,7 +4,6 @@ import Layout from '../../components/Layout/Layout'
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
 import Spinner from '../../components/Spinner/Spinner'
 import { getSpeciesBySlug, getRelatedSpecies } from '../../data/speciesData'
-import { formatPrice } from '../../utils/formatPrice'
 
 const WOOD_COLORS = {
   BAS: '#5C3317', BGR: '#A0724A', WAN: '#8B4513', ZWK: '#1A0A00',
@@ -138,12 +137,8 @@ export default function SpeciesDetail() {
 
             {/* Price + CTA */}
             <div className="card p-5">
-              <div className="flex items-baseline gap-1 mb-1">
-                <span className="font-bold text-2xl text-primary">{formatPrice(species.price)}</span>
-                <span className="text-muted text-sm">/ {species.unit}</span>
-              </div>
-              <p className="text-xs text-muted mb-4">
-                Pricing is per board foot, rough-sawn. Custom dimensions and volume pricing available on request.
+              <p className="text-sm text-muted mb-4">
+                Pricing available on request. Volume pricing and custom dimensions available — contact us for a quote.
               </p>
               <Link
                 to={`/contact?mode=quote&species=${species.code}`}

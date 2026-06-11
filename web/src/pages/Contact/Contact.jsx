@@ -25,6 +25,40 @@ const SUBJECTS = [
   'Other',
 ]
 
+const US_STATES = [
+  ['AL','Alabama'],['AK','Alaska'],['AZ','Arizona'],['AR','Arkansas'],['CA','California'],
+  ['CO','Colorado'],['CT','Connecticut'],['DE','Delaware'],['DC','Washington D.C.'],['FL','Florida'],
+  ['GA','Georgia'],['HI','Hawaii'],['ID','Idaho'],['IL','Illinois'],['IN','Indiana'],
+  ['IA','Iowa'],['KS','Kansas'],['KY','Kentucky'],['LA','Louisiana'],['ME','Maine'],
+  ['MD','Maryland'],['MA','Massachusetts'],['MI','Michigan'],['MN','Minnesota'],['MS','Mississippi'],
+  ['MO','Missouri'],['MT','Montana'],['NE','Nebraska'],['NV','Nevada'],['NH','New Hampshire'],
+  ['NJ','New Jersey'],['NM','New Mexico'],['NY','New York'],['NC','North Carolina'],['ND','North Dakota'],
+  ['OH','Ohio'],['OK','Oklahoma'],['OR','Oregon'],['PA','Pennsylvania'],['RI','Rhode Island'],
+  ['SC','South Carolina'],['SD','South Dakota'],['TN','Tennessee'],['TX','Texas'],['UT','Utah'],
+  ['VT','Vermont'],['VA','Virginia'],['WA','Washington'],['WV','West Virginia'],['WI','Wisconsin'],['WY','Wyoming'],
+]
+
+const CA_PROVINCES = [
+  ['AB','Alberta'],['BC','British Columbia'],['MB','Manitoba'],['NB','New Brunswick'],
+  ['NL','Newfoundland & Labrador'],['NS','Nova Scotia'],['NT','Northwest Territories'],
+  ['NU','Nunavut'],['ON','Ontario'],['PE','Prince Edward Island'],['QC','Quebec'],
+  ['SK','Saskatchewan'],['YT','Yukon'],
+]
+
+function DeliveryStateSelect({ value, onChange }) {
+  return (
+    <select value={value} onChange={onChange} className="input-base">
+      <option value="">Select…</option>
+      <optgroup label="— United States —">
+        {US_STATES.map(([code, name]) => <option key={code} value={code}>{code} — {name}</option>)}
+      </optgroup>
+      <optgroup label="— Canada —">
+        {CA_PROVINCES.map(([code, name]) => <option key={code} value={code}>{code} — {name}</option>)}
+      </optgroup>
+    </select>
+  )
+}
+
 // ─── General Inquiry ──────────────────────────────────────────────────────────
 function GeneralForm({ user }) {
   const { toast } = useToast()
@@ -171,9 +205,9 @@ function HardwoodQuoteForm({ user, preselectedSpecies }) {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
-      <div className="bg-wood-light/20 border border-wood/20 rounded-xl p-4 text-sm text-body">
-        We respond to hardwood quotes within <strong>1 business day</strong>. For container-load inquiries (&gt;5,000 bf) email
-        {' '}<a href="mailto:tradicoreusa@gmail.com" className="text-accent hover:underline">tradicoreusa@gmail.com</a> directly.
+      <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 text-sm text-body">
+        <strong>Minimum Order Quantity:</strong> One full 20&apos; or 40&apos; HQ container. For container-load inquiries email{' '}
+        <a href="mailto:tradicoreusa@gmail.com" className="text-accent hover:underline">tradicoreusa@gmail.com</a> directly.
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
@@ -237,9 +271,8 @@ function HardwoodQuoteForm({ user, preselectedSpecies }) {
                 className="input-base" placeholder='e.g. 4/4, 8/4, 2"' />
             </div>
             <div>
-              <label className="block text-sm font-medium text-primary mb-1.5">Delivery state</label>
-              <input type="text" value={form.deliveryState} onChange={set('deliveryState')}
-                className="input-base" placeholder="IL, FL, TX…" maxLength={2} />
+              <label className="block text-sm font-medium text-primary mb-1.5">Delivery state / province</label>
+              <DeliveryStateSelect value={form.deliveryState} onChange={set('deliveryState')} />
             </div>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -388,9 +421,8 @@ function MouldingQuoteForm({ user }) {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-primary mb-1.5">Delivery state</label>
-              <input type="text" value={form.deliveryState} onChange={set('deliveryState')}
-                className="input-base" placeholder="IL" maxLength={2} />
+              <label className="block text-sm font-medium text-primary mb-1.5">Delivery state / province</label>
+              <DeliveryStateSelect value={form.deliveryState} onChange={set('deliveryState')} />
             </div>
           </div>
           <div>
@@ -442,8 +474,7 @@ function SuccessBanner({ name, email, type }) {
         {type === 'quote' ? 'Quote request sent!' : 'Message sent!'}
       </h3>
       <p className="text-muted text-sm max-w-sm mx-auto">
-        Thanks, <strong>{name.split(' ')[0]}</strong>. We'll follow up at <strong>{email}</strong>{' '}
-        {type === 'quote' ? 'within 1 business day.' : 'within 24 hours.'}
+        Thanks, <strong>{name.split(' ')[0]}</strong>. We'll follow up at <strong>{email}</strong> as soon as possible.
       </p>
     </div>
   )
@@ -483,6 +514,9 @@ export default function Contact() {
           <h1 className="font-heading text-4xl font-bold mt-3 mb-2">Contact & Quotes</h1>
           <p className="text-white/65 max-w-xl">
             Get in touch with our team, request pricing on tropical hardwoods, or get a quote on moulding for your next project.
+          </p>
+          <p className="text-accent text-sm font-medium mt-2">
+            Minimum Order Quantity: one full 20&apos; or 40&apos; HQ container.
           </p>
         </div>
       </div>
@@ -529,29 +563,20 @@ export default function Contact() {
                 </li>
                 <li className="flex gap-3">
                   <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
                   </svg>
                   <div>
-                    <p className="font-medium text-primary">Hardwood sales</p>
-                    <a href="mailto:tradicoreusa@gmail.com" className="text-accent hover:underline">tradicoreusa@gmail.com</a>
-                  </div>
-                </li>
-                <li className="flex gap-3">
-                  <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <div>
-                    <p className="font-medium text-primary">Trade accounts</p>
-                    <a href="mailto:tradicoreusa@gmail.com" className="text-accent hover:underline">tradicoreusa@gmail.com</a>
-                  </div>
-                </li>
-                <li className="flex gap-3">
-                  <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.4 7h12.8M7 13L5.4 5" />
-                  </svg>
-                  <div>
-                    <p className="font-medium text-primary">Phone / text</p>
+                    <p className="font-medium text-primary">Alan</p>
                     <a href="tel:+12247156452" className="text-accent hover:underline">224-715-6452</a>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+                  </svg>
+                  <div>
+                    <p className="font-medium text-primary">Mohammad</p>
+                    <a href="tel:+18475053302" className="text-accent hover:underline">847-505-3302</a>
                   </div>
                 </li>
               </ul>
@@ -571,9 +596,6 @@ export default function Contact() {
                   </li>
                 ))}
               </ul>
-              <p className="text-xs text-muted mt-4">
-                Quote requests submitted after hours are responded to by 10 AM the next business day.
-              </p>
             </div>
 
             <div className="card p-6 bg-primary/3">

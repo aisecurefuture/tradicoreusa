@@ -161,9 +161,11 @@ export default function Trade() {
               Built for the pros who build.
             </h1>
             <p className="text-white/70 text-lg leading-relaxed mb-8">
-              TradiCore's trade program gives contractors, builders, and dealers wholesale pricing
-              and direct access to premium South American hardwoods—straight from
-              our Suriname supply partners.
+              Tradicore LLC supplies premium softwood products through trusted manufacturing partners
+              in Asia and is expanding into direct-source hardwood products from South America. By
+              sourcing directly from harvest operations and eliminating middlemen, we provide
+              competitive pricing, consistent quality, and reliable supply chain solutions for
+              distributors, manufacturers, and commercial projects throughout North America.
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="#apply" className="btn-primary">Apply Now</a>

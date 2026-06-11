@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { formatPrice } from '../../utils/formatPrice'
 
 // Unique color swatch per species code
 const WOOD_COLORS = {
@@ -58,14 +57,7 @@ export default function SpeciesCard({ species, showQuoteButton = true }) {
         {/* Price */}
         <div className="border-t border-border pt-3 mt-auto flex items-end justify-between gap-2">
           <div>
-            {species.price ? (
-              <>
-                <span className="font-bold text-primary">{formatPrice(species.price)}</span>
-                <span className="text-xs text-muted ml-1">/ {species.unit}</span>
-              </>
-            ) : (
-              <span className="text-sm text-muted italic">Quote only</span>
-            )}
+            <span className="text-sm text-muted italic">Quote on request</span>
           </div>
           {showQuoteButton && (
             <Link

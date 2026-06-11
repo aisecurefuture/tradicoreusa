@@ -38,8 +38,6 @@ export default function Category() {
     let out = [...allProducts]
     if (filters.material?.length) out = out.filter(p => filters.material.includes(p.material))
     if (filters.finish?.length)   out = out.filter(p => filters.finish.includes(p.finish))
-    if (sort === 'price_asc')  out.sort((a, b) => a.price - b.price)
-    if (sort === 'price_desc') out.sort((a, b) => b.price - a.price)
     if (sort === 'name_asc')   out.sort((a, b) => a.name.localeCompare(b.name))
     return out
   }, [allProducts, filters, sort])

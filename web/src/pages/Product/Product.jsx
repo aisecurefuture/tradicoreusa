@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom'
 import Layout from '../../components/Layout/Layout'
 import Breadcrumb from '../../components/Breadcrumb/Breadcrumb'
 import ProductCard from '../../components/ProductCard/ProductCard'
-import QuantityInput from '../../components/QuantityInput/QuantityInput'
 import Badge from '../../components/Badge/Badge'
 import Spinner from '../../components/Spinner/Spinner'
 import { useCart } from '../../context/CartContext'
@@ -138,7 +137,7 @@ export default function Product() {
             <div className="flex flex-wrap gap-2">
               <Badge variant={finishVariant[product.finish] ?? 'new'}>{product.finish}</Badge>
               <Badge variant="trade">{product.material}</Badge>
-              {product.inStock && !product.comingSoon && <Badge variant="in-stock">In Stock</Badge>}
+              {/* In Stock hidden */}
               {product.comingSoon && <Badge variant="coming-soon">Coming Soon</Badge>}
             </div>
 
@@ -150,7 +149,7 @@ export default function Product() {
               <p className="text-sm text-muted">SKU: {product.sku}</p>
             </div>
 
-            {/* Price */}
+            {/* Price — hidden until pricing is confirmed
             <div className="flex items-baseline gap-2">
               {product.price ? (
                 <>
@@ -161,6 +160,7 @@ export default function Product() {
                 <span className="text-lg text-muted italic">Price on request</span>
               )}
             </div>
+            */}
 
             {/* Description */}
             <p className="text-sm text-primary/80 leading-relaxed">{product.description}</p>
@@ -194,17 +194,14 @@ export default function Product() {
               </div>
             )}
 
-            {/* Add to cart */}
+            {/* Request a Quote */}
             {!product.comingSoon ? (
-              <div className="flex items-center gap-4">
-                <QuantityInput value={qty} onChange={setQty} />
-                <button onClick={handleAddToCart} className="btn-primary flex-1 justify-center py-3">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.4 7h12.8M7 13L5.4 5M17 17a2 2 0 100 4 2 2 0 000-4zM9 17a2 2 0 100 4 2 2 0 000-4z" />
-                  </svg>
-                  Add to Cart
-                </button>
-              </div>
+              <Link
+                to={`/contact?type=moulding`}
+                className="btn-primary flex-1 justify-center py-3"
+              >
+                Request a Quote
+              </Link>
             ) : (
               <button disabled className="btn-primary opacity-50 cursor-not-allowed justify-center py-3">
                 <span className="badge-coming-soon mr-2">Coming Soon</span>

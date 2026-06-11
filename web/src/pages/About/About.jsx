@@ -81,6 +81,27 @@ export default function About() {
         </div>
       </div>
 
+      {/* Company overview */}
+      <div className="bg-bg py-14 border-b border-border">
+        <div className="container-site">
+          <div className="max-w-3xl space-y-5 text-body leading-relaxed">
+            <p>
+              Tradicore LLC is currently partnering with leading manufacturers throughout Asia to supply
+              premium-quality softwood products to the North American market. Our extensive supply chain
+              network allows us to provide consistent quality, competitive pricing, and reliable delivery
+              for distributors, wholesalers, manufacturers, and large-scale commercial projects.
+            </p>
+            <p>
+              In the near future, we will expand our product portfolio by offering premium hardwood
+              products sourced directly from South America. Through our exclusive sourcing network and
+              direct relationships with harvesting operations, we will control the supply chain from
+              harvest to delivery, eliminating unnecessary intermediaries and reducing costs for our
+              customers.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Mission statement */}
       <div className="bg-accent text-primary py-12">
         <div className="container-site">

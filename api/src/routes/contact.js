@@ -78,11 +78,13 @@ function validate(schema, body) {
   return { ok: true, data: result.data }
 }
 
-const TEAM_EMAIL    = process.env.TEAM_EMAIL    || 'info@tradicoreusa.com'
+const TEAM_EMAIL     = process.env.TEAM_EMAIL     || 'info@tradicoreusa.com'
 const HARDWOOD_EMAIL = process.env.HARDWOOD_EMAIL || 'hardwood@tradicoreusa.com'
-const SALES_EMAIL   = process.env.SALES_EMAIL   || 'sales@tradicoreusa.com'
-const FROM_NOREPLY  = process.env.FROM_NOREPLY  || 'no-reply@mail.tradicoreusa.com'
-const FROM_SALES    = process.env.FROM_SALES    || 'TradiCore Sales <sales@mail.tradicoreusa.com>'
+const SALES_EMAIL    = process.env.SALES_EMAIL    || 'sales@tradicoreusa.com'
+const FROM_NOREPLY   = process.env.FROM_NOREPLY   || 'no-reply@mail.tradicoreusa.com'
+const FROM_SALES     = process.env.FROM_SALES     || 'TradiCore Sales <sales@mail.tradicoreusa.com>'
+// Override where all inbound replies land — useful before real inboxes are set up
+const REPLY_TO       = process.env.REPLY_TO       || SALES_EMAIL
 
 // ── Routes ────────────────────────────────────────────────────────────────────
 
@@ -95,7 +97,7 @@ router.post('/contact', async (req, res) => {
     sendEmail({
       from:    FROM_NOREPLY,
       to:      TEAM_EMAIL,
-      replyTo: data.email,
+      replyTo: REPLY_TO,
       subject: `[Contact] ${data.subject} — ${data.name}`,
       html:    t.internalContact(data),
     }),
@@ -127,7 +129,7 @@ router.post('/quote', async (req, res) => {
     sendEmail({
       from:    FROM_NOREPLY,
       to:      toInternal,
-      replyTo: data.email,
+      replyTo: REPLY_TO,
       subject: `${subjectTag} ${data.name}${data.company ? ` — ${data.company}` : ''}`,
       html:    internalHtml,
     }),
@@ -151,7 +153,7 @@ router.post('/trade', async (req, res) => {
     sendEmail({
       from:    FROM_NOREPLY,
       to:      SALES_EMAIL,
-      replyTo: data.email,
+      replyTo: REPLY_TO,
       subject: `[Trade Application] ${data.firstName} ${data.lastName} — ${data.company}`,
       html:    t.internalTradeApplication(data),
     }),

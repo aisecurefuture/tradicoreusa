@@ -145,9 +145,17 @@ section { padding: 100px 0; }
   justify-content: space-between;
 }
 
+.nav-logo {
+  overflow: hidden;
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+
 .nav-logo img {
-  height: 64px;
+  height: 88px;
   width: auto;
+  flex-shrink: 0;
 }
 
 .nav-links {

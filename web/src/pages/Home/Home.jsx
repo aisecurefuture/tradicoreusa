@@ -60,7 +60,7 @@ function Hero() {
           Premium Wood Trim, Moulding&nbsp;&amp; Tropical&nbsp;Hardwood — Direct from the Source
         </h1>
         <p className="text-white/70 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-          TradiCore Lumber and Products supplies contractors, builders, and architects with factory-direct MDF moulding and rare South American tropical hardwoods — not available through big-box retailers.
+          TradiCore Lumber and Products supplies contractors, builders, and architects with factory-direct MDF, pine, and malacca moulding and rare South American tropical hardwoods — not available through big-box retailers.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/collections/moulding-trim" className="btn-primary text-base px-8 py-4">

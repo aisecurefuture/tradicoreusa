@@ -1,6 +1,11 @@
 # TradiCore + First Golden Logistics — Caddy reverse proxy with automatic TLS
 # Caddy obtains and renews Let's Encrypt certificates for all domains automatically.
 
+# Redirect www → apex for TradiCore
+www.{$DOMAIN:localhost} {
+    redir https://{$DOMAIN:localhost}{uri} permanent
+}
+
 {$DOMAIN:localhost} {
     # API routes → Express container
     handle /api/* {

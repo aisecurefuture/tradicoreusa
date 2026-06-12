@@ -265,7 +265,7 @@ exports.fglInternalContact = (d) => fglBase(`
 // Auto-reply — sent to the person who submitted the form
 exports.fglAutoReply = (d) => fglBase(`
   <h2>We'll be in touch, ${escHtml(d.name.split(' ')[0])}.</h2>
-  <p>Thanks for reaching out to First Golden Logistics. Our team has received your request and will follow up at <strong>${escHtml(d.email)}</strong> within one business day.</p>
+  <p>Thanks for reaching out to First Golden Logistics. Our team has received your request and will follow up at <strong>${escHtml(d.email)}</strong> soon.</p>
   <div class="section">
     <div class="label">What happens next</div>
     <div class="value">One of our principals — Mohammad, Alan, or Dex — will reach out to schedule your free U.S. Readiness Check call. The call is 20 minutes, no commitment.</div>
